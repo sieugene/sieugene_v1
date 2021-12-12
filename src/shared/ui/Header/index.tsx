@@ -77,10 +77,11 @@ Header.LogoSection = styled.div`
   }
 `;
 
-Header.StyledLogo = styled(Logo)`
+Header.StyledLogo = styled.div`
   width: 30px;
   height: 30px;
   margin-right: 1rem;
+  background: black;
 `;
 
 Header.Links = styled(Grid)``;
