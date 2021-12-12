@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { BaseButton } from "..";
 
 const Topic = () => {
   return (
@@ -35,14 +36,14 @@ const Topic = () => {
           `}
         >
           <p>Проекты по категориям/стэку</p>
-          <Button
+          <BaseButton
             css={css`
               margin-top: 10px;
-              text-align: center;
+              justify-content: center;
             `}
           >
             Тык
-          </Button>
+          </BaseButton>
         </Card>
       </div>
       <div>
@@ -63,13 +64,13 @@ const Topic = () => {
             многом другом.
           </p>
 
-          <Button
+          <BaseButton
             css={css`
               margin-top: 10px;
             `}
           >
             К заметкам
-          </Button>
+          </BaseButton>
         </Card>
       </div>
     </Layout>
@@ -86,20 +87,11 @@ const Card = styled.div`
   color: white;
   padding: 1rem;
   border-radius: 0.6rem;
-`;
-
-const Button = styled.div`
-  width: fit-content;
-  width: 100%;
-  color: black;
-  background: #ffffffab;
-  font-weight: 500;
-  border-radius: 0.6rem;
-  padding: 1rem;
-  font-size: 16px;
-  cursor: pointer;
+  transition: box-shadow 0.3s;
   &:hover {
-    opacity: 0.7;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(134, 151, 38, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
   }
 `;
 
