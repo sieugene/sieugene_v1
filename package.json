@@ -19,7 +19,8 @@
     "next-translate": "^1.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "swr": "^1.1.1"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",

@@ -4900,6 +4900,11 @@ svgo@^2.5.0:
     picocolors "^1.0.0"
     stable "^0.1.8"
 
+swr@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.1.tgz#f13346cc830d7950183af57b341bfabb4cc90d43"
+  integrity sha512-ZpUHyU3N3snj2QGFeE2Fd3BXl1CVS6YQIQGb1ttPAkTmvwZqDyV3GRMNPsaeAYCBM74tfn4XbKx28FVQR0mS7Q==
+
 text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
