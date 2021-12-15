@@ -1,4 +1,3 @@
-import styled from "@emotion/styled";
 import { Post } from "entities/post";
 import { getPostByName } from "entities/post/api";
 import { API_ENDPOINTS } from "shared/lib/api";
@@ -13,11 +12,7 @@ const PostByName = () => {
   if (!source) {
     return <div>Ooops...</div>;
   }
-  return (
-    <Wrapper>
-      <Post source={source} />
-    </Wrapper>
-  );
+  return <Post source={source} />;
 };
 
 const PostPage = ({ fallback }: PostPageFallbackProps) => {
@@ -27,16 +22,5 @@ const PostPage = ({ fallback }: PostPageFallbackProps) => {
     </SWRConfig>
   );
 };
-
-const Wrapper = styled.div`
-  -webkit-box-shadow: 4px 4px 14px 0px rgba(34, 60, 80, 0.2);
-  -moz-box-shadow: 4px 4px 14px 0px rgba(34, 60, 80, 0.2);
-  box-shadow: 4px 4px 14px 0px rgba(34, 60, 80, 0.2);
-  border-radius: 0.6rem;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  height: 100vh;
-  padding: 1rem;
-`;
 
 export default PostPage;

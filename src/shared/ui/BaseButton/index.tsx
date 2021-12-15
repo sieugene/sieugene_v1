@@ -7,7 +7,7 @@ const BaseButton = styled(Button)`
   color: black;
   background: #ffffffc7;
   font-weight: 500;
-  border-radius: 0.6rem;
+  border-radius: ${({ theme }) => theme.borderRadius.default};
   padding: 1rem;
   font-size: 16px;
   cursor: pointer;

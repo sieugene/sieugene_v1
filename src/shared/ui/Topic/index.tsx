@@ -98,7 +98,7 @@ const Card = styled.div`
   background: #433f3f;
   color: white;
   padding: 1rem;
-  border-radius: 0.6rem;
+  border-radius: ${({ theme }) => theme.borderRadius.default};
   transition: box-shadow 0.3s;
   &:hover {
     -webkit-box-shadow: 4px 4px 8px 0px rgba(134, 151, 38, 0.2);
