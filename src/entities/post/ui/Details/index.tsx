@@ -31,11 +31,11 @@ const DetailsList = styled.ul`
   li {
     display: flex;
     align-items: center;
-    margin-right: 10px;
+    margin-right: ${({ theme }) => theme.spaces.default};
     &:not(:last-of-type):after {
       content: "·";
       display: inline-block;
-      margin-left: 10px;
+      margin-left: ${({ theme }) => theme.spaces.default};
       font-weight: ${({ theme }) => theme.typography.fontWeightBold};
       opacity: 0.4;
     }

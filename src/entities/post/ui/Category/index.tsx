@@ -18,9 +18,9 @@ const Paragraph = styled.p`
     content: "";
     width: 10px;
     height: 10px;
-	border-radius: ${({ theme }) => theme.borderRadius.default};
+    border-radius: ${({ theme }) => theme.borderRadius.default};
     background: ${(props) => props.theme.colors.limeGreen};
-    margin-right: 10px;
+    margin-right: ${({ theme }) => theme.spaces.default};
     display: inline-block;
   }
 `;

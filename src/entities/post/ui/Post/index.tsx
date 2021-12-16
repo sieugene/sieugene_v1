@@ -5,12 +5,14 @@ import Details from "../Details";
 import Category from "../Category";
 import Title from "../Title";
 import Date from "../Date";
+import Text from "../Text";
+import Label from "../Label";
 
 export type PostProps = {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
 };
 
-const Components = { Title, Category, Details, Date };
+const Components = { Title, Category, Details, Date, Text, Label };
 
 const Post: FC<PostProps> = ({ source }) => {
   return (

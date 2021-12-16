@@ -6,8 +6,6 @@ const Title: FC = ({ children }) => {
 };
 
 const Paragraph = styled.h1`
-  display: flex;
-  align-items: center;
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
   font-size: ${(props) => props.theme.fontSize.big};
 `;
