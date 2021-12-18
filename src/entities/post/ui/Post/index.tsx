@@ -34,6 +34,11 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
     padding: 1rem;
   }
+
+  // temp
+  ul {
+    margin-left: 33px;
+  }
 `;
 
 export default Post;

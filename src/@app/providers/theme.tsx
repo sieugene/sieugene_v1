@@ -27,6 +27,7 @@ const optionsTheme = {
     limeGreen: "#69d681",
     grayish: "#808385",
     black: "#000",
+    blue: "#1976d2",
   },
 };
 

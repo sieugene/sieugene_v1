@@ -12,6 +12,12 @@ const Paragraph = styled.p`
   b {
     font-weight: ${({ theme }) => theme.typography.fontWeightBold};
   }
+  a {
+    color: ${({ theme }) => theme.colors.blue};
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 `;
 
 export default Text;
