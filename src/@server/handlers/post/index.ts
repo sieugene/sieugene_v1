@@ -32,7 +32,7 @@ const postHandler = async (
           res.status(200).json({ data: mdxSource });
           break;
         default:
-          res.setHeader("Allow", ["GET", "PUT"]);
+          res.setHeader("Allow", ["GET"]);
           res.status(405).end(`Method ${method} Not Allowed`);
       }
     }
