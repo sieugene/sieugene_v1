@@ -29,7 +29,7 @@ const Header = () => {
           <Link href={ROUTES.home}>
             <a href={ROUTES.home}>
               <Header.LogoSection>
-                <Header.StyledLogo />
+                <Header.StyledLogo>Ru</Header.StyledLogo>
                 <h1>Eugene.Poluakov</h1>
               </Header.LogoSection>
             </a>
@@ -79,6 +79,11 @@ Header.StyledLogo = styled.div`
   height: 30px;
   margin-right: 1rem;
   background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
 `;
 
 Header.Links = styled.div`

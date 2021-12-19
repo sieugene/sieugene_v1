@@ -1,12 +1,15 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { SerializedStyles } from "@mui/styled-engine";
+import Link from "next/link";
+import { ROUTES } from "shared/lib";
 import { BaseButton } from "..";
 
 interface TopicI {
   css: SerializedStyles;
   text: string;
   btn?: string;
+  link?: string;
 }
 
 const Topic = () => {
@@ -34,6 +37,7 @@ const Topic = () => {
           margin-bottom: 10px;
         }
       `,
+      link: ROUTES.projects,
     },
   ];
   const topicsRight: TopicI[] = [
@@ -41,6 +45,7 @@ const Topic = () => {
       text: `На веб сайте вы можете найти мои заметки, об процессе, мыслях и
   многом другом.`,
       btn: "К заметкам",
+      link: ROUTES.notes,
       css: css`
         max-width: 410px;
         width: 100%;
@@ -80,7 +85,13 @@ Topic.Card = ({ topic }: { topic: TopicI }) => {
       <div>
         <p>{topic.text}</p>
       </div>
-      {topic.btn && <BaseButton>{topic.btn}</BaseButton>}
+      {topic.btn && (
+        <Link href={topic.link || ""}>
+          <a href={topic.link || ""}>
+            <BaseButton>{topic.btn}</BaseButton>
+          </a>
+        </Link>
+      )}
     </Card>
   );
 };
