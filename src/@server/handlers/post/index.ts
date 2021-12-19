@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import fs from "fs";
 import { serialize } from "next-mdx-remote/serialize";
+import path from "path";
 const basepath = "src/shared/data/";
 
 export interface PostHandlerResponse {
@@ -18,7 +19,7 @@ const postHandler = async (
   } = req;
 
   fs.readFile(
-    `${basepath}${name}.mdx`,
+    path.resolve(`${basepath}${name}.mdx`),
     {
       encoding: "utf8",
     },
