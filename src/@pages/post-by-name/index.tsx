@@ -13,6 +13,7 @@ const PostByName = () => {
     router?.query?.name?.toString() || "",
     getPostByName
   );
+
   if (!source || error) {
     return <div>Ooops...</div>;
   }

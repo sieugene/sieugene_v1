@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextTranslate = require("next-translate");
+const webpack = require("webpack");
 
 module.exports = nextTranslate({
   reactStrictMode: true,
@@ -8,6 +9,7 @@ module.exports = nextTranslate({
       test: /\.svg$/,
       use: ["@svgr/webpack"],
     });
+    config.plugins.push(new webpack.EnvironmentPlugin(process.env));
 
     return config;
   },

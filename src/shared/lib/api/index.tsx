@@ -1,4 +1,4 @@
-const BaseEndpoint = "http://localhost:3000";
+const BaseEndpoint = process.env.API;
 
 export const API_ENDPOINTS = {
   PostByTitle: BaseEndpoint + `/api/post/`,
