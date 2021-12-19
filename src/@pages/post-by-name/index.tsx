@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import { Post } from "entities/post";
 import { getPostByName } from "entities/post/api";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
 import useSWR, { SWRConfig } from "swr";
@@ -21,10 +22,19 @@ const PostByName = () => {
 };
 
 const PostPage = ({ fallback }: PostPageFallbackProps) => {
+  const { query } = useRouter();
+  const title = query?.name;
+
   return (
-    <SWRConfig value={{ fallback }}>
-      <PostByName />
-    </SWRConfig>
+    <>
+      <Head>
+        <title>Sieugene | {title}</title>
+      </Head>
+
+      <SWRConfig value={{ fallback }}>
+        <PostByName />
+      </SWRConfig>
+    </>
   );
 };
 

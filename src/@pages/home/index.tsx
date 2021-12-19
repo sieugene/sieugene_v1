@@ -1,26 +1,37 @@
+import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
-import useTranslation from "next-translate/useTranslation";
-import { Topic } from "shared/ui";
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
+import Head from "next/head";
 import Link from "next/link";
 import { ROUTES } from "shared/lib";
+import { Topic } from "shared/ui";
 
 const HomePage: NextPage = () => {
-  const { t, lang } = useTranslation("common");
   return (
-    <Wrapper>
-      <About>
-        <p> Меня зовут Евгений, я frontend developer.</p>
-        <Link href={ROUTES.about}>
-          <a href={ROUTES.about}>
-            <Button>Обо мне</Button>
-          </a>
-        </Link>
-      </About>
-      <Topic />
-    </Wrapper>
+    <>
+      <Head>
+        <title>Sieugene | Персональный блог</title>
+        <meta
+          name="description"
+          content="My name is Eugene, my main area of frontend development, Next(React), Apollo. I am engaged in web development since 2019."
+        />
+        <meta
+          name="keywords"
+          content="sieugene, eugene poluakov, Евгений Поляков, frontend developer, react develop, russia"
+        />
+      </Head>
+      <Wrapper>
+        <About>
+          <p> Меня зовут Евгений, я frontend developer.</p>
+          <Link href={ROUTES.about}>
+            <a href={ROUTES.about}>
+              <Button>Обо мне</Button>
+            </a>
+          </Link>
+        </About>
+        <Topic />
+      </Wrapper>
+    </>
   );
 };
 
