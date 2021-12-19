@@ -11,19 +11,14 @@ const HomePage: NextPage = () => {
   const { t, lang } = useTranslation("common");
   return (
     <Wrapper>
-      <div
-        css={css`
-          max-width: 380px;
-          font-size: 24px;
-        `}
-      >
+      <About>
         <p> Меня зовут Евгений, я frontend developer.</p>
         <Link href={ROUTES.about}>
           <a href={ROUTES.about}>
             <Button>Обо мне</Button>
           </a>
         </Link>
-      </div>
+      </About>
       <Topic />
     </Wrapper>
   );
@@ -36,6 +31,18 @@ const Wrapper = styled.div`
   margin-top: 10rem;
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
     flex-direction: column;
+  }
+`;
+
+const About = styled.div`
+  max-width: 380px;
+  font-size: 24px;
+  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    max-width: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 `;
 

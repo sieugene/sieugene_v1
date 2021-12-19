@@ -94,7 +94,7 @@ const Layout = styled.div`
     justify-content: end;
   }
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
-    justify-content: start;
+    justify-content: center;
   }
 `;
 
