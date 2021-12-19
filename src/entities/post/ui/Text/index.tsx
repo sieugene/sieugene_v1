@@ -14,9 +14,12 @@ const Paragraph = styled.p`
   }
   a {
     color: ${({ theme }) => theme.colors.blue};
-    &:hover{
+    &:hover {
       text-decoration: underline;
     }
+  }
+  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    font-size: ${({ theme }) => theme.fontSize.small};
   }
 `;
 

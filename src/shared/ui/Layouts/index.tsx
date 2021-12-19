@@ -1,13 +1,21 @@
 import { Container } from "@mui/material";
-import { FC } from "react";
+import React, { FC } from "react";
 import { Header } from "..";
 
-const Layouts: FC = ({ children }) => {
-  return (
+const Layouts: FC<{ withLayout: boolean }> = ({ children, withLayout }) => {
+  if (withLayout) {
     <Container>
       <Header />
       {children}
-    </Container>
+    </Container>;
+  }
+  return (
+    <React.Fragment>
+      <Container>
+        <Header />
+      </Container>
+      {children}
+    </React.Fragment>
   );
 };
 

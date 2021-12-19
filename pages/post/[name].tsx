@@ -2,7 +2,6 @@ import { PostPage } from "@pages";
 import { PostHandlerResponse } from '@server/handlers/post';
 import { getPostByName } from "entities/post/api";
 import { GetStaticProps } from "next";
-import { API_ENDPOINTS } from "shared/lib/api";
 
 export type PostPageFallbackProps = {
   fallback: {
@@ -19,7 +18,7 @@ export const getServerSideProps: GetStaticProps<PostPageFallbackProps> =
       return {
         props: {
           fallback: {
-            [API_ENDPOINTS.PostByTitle]: source,
+            [name]: source,
           },
         },
       };

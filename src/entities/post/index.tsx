@@ -5,3 +5,4 @@ export { default as Details } from "./ui/Details";
 export { default as Date } from "./ui/Date";
 export { default as Text } from "./ui/Text";
 export { default as Label } from "./ui/Label";
+export { default as List } from "./ui/List";

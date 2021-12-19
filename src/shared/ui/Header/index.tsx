@@ -24,47 +24,49 @@ const Header = () => {
     },
   ];
   return (
-    <Grid
-      container
-      spacing={2}
-      xs={12}
-      alignItems={"center"}
-      justifyContent={"space-between"}
-    >
-      <Grid item>
-        <Link href={ROUTES.home}>
-          <a href={ROUTES.home}>
-            <Header.LogoSection>
-              <Header.StyledLogo />
-              <h1>Eugene.Poluakov</h1>
-            </Header.LogoSection>
-          </a>
-        </Link>
-      </Grid>
+    <header>
+      <Grid
+        container
+        spacing={2}
+        xs={12}
+        alignItems={"center"}
+        justifyContent={"space-between"}
+      >
+        <Grid item>
+          <Link href={ROUTES.home}>
+            <a href={ROUTES.home}>
+              <Header.LogoSection>
+                <Header.StyledLogo />
+                <h1>Eugene.Poluakov</h1>
+              </Header.LogoSection>
+            </a>
+          </Link>
+        </Grid>
 
-      <Header.Links>
-        {links?.map((link, index) => {
-          return (
-            <Link href={link.href} key={index}>
-              <a
-                href={link.href}
-                css={css`
-                  margin-right: 1rem;
-                  cursor: pointer;
-                  transition: 0.3s all ease;
-                  text-transform: capitalize;
-                  &:hover {
-                    opacity: 0.7;
-                  }
-                `}
-              >
-                {link.title}
-              </a>
-            </Link>
-          );
-        })}
-      </Header.Links>
-    </Grid>
+        <Header.Links>
+          {links?.map((link, index) => {
+            return (
+              <Link href={link.href} key={index}>
+                <a
+                  href={link.href}
+                  css={css`
+                    margin-right: 1rem;
+                    cursor: pointer;
+                    transition: 0.3s all ease;
+                    text-transform: capitalize;
+                    &:hover {
+                      opacity: 0.7;
+                    }
+                  `}
+                >
+                  {link.title}
+                </a>
+              </Link>
+            );
+          })}
+        </Header.Links>
+      </Grid>
+    </header>
   );
 };
 

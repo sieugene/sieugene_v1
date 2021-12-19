@@ -17,7 +17,9 @@ const optionsTheme = {
   fontSize: {
     big: "40px",
     medium: "32px",
+    primary: "28px",
     text: "20px",
+    small: "18px"
   },
   lineHeight: {
     wide: "36px",

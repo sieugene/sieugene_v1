@@ -7,12 +7,13 @@ import Title from "../Title";
 import Date from "../Date";
 import Text from "../Text";
 import Label from "../Label";
+import List from "../List";
 
 export type PostProps = {
   source: MDXRemoteSerializeResult<Record<string, unknown>>;
 };
 
-const Components = { Title, Category, Details, Date, Text, Label };
+const Components = { Title, Category, Details, Date, Text, Label, List };
 
 const Post: FC<PostProps> = ({ source }) => {
   return (
@@ -31,13 +32,9 @@ const Wrapper = styled.div`
   margin-bottom: 3rem;
   min-height: 100vh;
   padding: 4rem;
+  word-wrap: break-word;
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
     padding: 1rem;
-  }
-
-  // temp
-  ul {
-    margin-left: 33px;
   }
 `;
 
