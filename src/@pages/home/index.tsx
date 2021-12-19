@@ -23,7 +23,7 @@ const HomePage: NextPage = () => {
       <Wrapper>
         <About>
           <p> Меня зовут Евгений, я frontend developer.</p>
-          <Link href={ROUTES.about}>
+          <Link href={ROUTES.about} prefetch={false}>
             <a href={ROUTES.about}>
               <Button>Обо мне</Button>
             </a>

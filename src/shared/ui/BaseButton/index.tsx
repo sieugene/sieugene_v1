@@ -8,7 +8,7 @@ const BaseButton = styled(Button)`
   background: #ffffffc7;
   font-weight: 500;
   border-radius: ${({ theme }) => theme.borderRadius.default};
-  padding: 1rem;
+  padding: 10px;
   font-size: 16px;
   cursor: pointer;
   justify-content: flex-start;
