@@ -50,26 +50,24 @@ const Topic = () => {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        p {
+          margin-bottom: 10px;
+        }
       `,
     },
   ];
   return (
     <Layout>
-      <div
-        css={css`
-          max-width: 300px;
-          margin-right: 10px;
-        `}
-      >
+      <LeftCol>
         {topicsLeft?.map((topic, index) => {
           return <Topic.Card topic={topic} key={index} />;
         })}
-      </div>
-      <div>
+      </LeftCol>
+      <RightCol>
         {topicsRight?.map((topic, index) => {
           return <Topic.Card topic={topic} key={index} />;
         })}
-      </div>
+      </RightCol>
     </Layout>
   );
 };
@@ -90,8 +88,29 @@ Topic.Card = ({ topic }: { topic: TopicI }) => {
 // Styled components
 
 const Layout = styled.div`
-  flex-wrap: wrap;
   display: flex;
+  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
+    justify-content: start;
+  }
+`;
+
+const LeftCol = styled.div`
+  max-width: 300px;
+  margin-right: 10px;
+  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+`;
+
+const RightCol = styled.div`
+  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
+    max-width: 300px;
+  }
 `;
 
 const Card = styled.div`

@@ -19,7 +19,7 @@ const optionsTheme = {
     medium: "32px",
     primary: "28px",
     text: "20px",
-    small: "18px"
+    small: "18px",
   },
   lineHeight: {
     wide: "36px",
@@ -30,6 +30,10 @@ const optionsTheme = {
     grayish: "#808385",
     black: "#000",
     blue: "#1976d2",
+    moderateBlue: "#4f4ca0",
+  },
+  borders: {
+    grayBorder: "rgba(0, 0, 0, 0.05)",
   },
 };
 

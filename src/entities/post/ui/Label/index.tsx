@@ -9,7 +9,7 @@ const H2 = styled.h2`
   font-weight: ${(props) => props.theme.typography.fontWeightBold};
   font-size: ${(props) => props.theme.fontSize.medium};
   margin-top: ${(props) => props.theme.spaces.big};
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid ${(props) => props.theme.borders.grayBorder};
   padding-bottom: ${(props) => props.theme.spaces.medium}; ;
 `;
 

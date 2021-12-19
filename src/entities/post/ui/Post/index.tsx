@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   box-shadow: 4px 4px 14px 0px rgba(34, 60, 80, 0.2);
   border-radius: ${({ theme }) => theme.borderRadius.large};
   margin-top: 3rem;
-  margin-bottom: 3rem;
   min-height: 100vh;
   padding: 4rem;
   word-wrap: break-word;
