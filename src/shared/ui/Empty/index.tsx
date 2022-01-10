@@ -1,5 +1,6 @@
 import { css } from "@emotion/react";
 import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
 import { FC } from "react";
 import { ROUTES } from "shared/lib";
 import { BaseButton } from "..";
@@ -37,22 +38,23 @@ const Empty: FC = ({ children }) => {
           {children}
         </div>
       </div>
-
-      <a href={ROUTES.about}>
-        <BaseButton
-          css={css`
-            margin-top: 30px;
-            background: blue;
-            color: white;
-            width: fit-content;
-            &:hover {
+      <Link href={ROUTES.about}>
+        <a href={ROUTES.about}>
+          <BaseButton
+            css={css`
+              margin-top: 30px;
               background: blue;
-            }
-          `}
-        >
-          {t("home.me")}
-        </BaseButton>
-      </a>
+              color: white;
+              width: fit-content;
+              &:hover {
+                background: blue;
+              }
+            `}
+          >
+            {t("home.me")}
+          </BaseButton>
+        </a>
+      </Link>
     </>
   );
 };
