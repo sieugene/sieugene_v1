@@ -1,6 +1,7 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { SerializedStyles } from "@mui/styled-engine";
+import useTranslation from 'next-translate/useTranslation';
 import Link from "next/link";
 import { ROUTES } from "shared/lib";
 import { BaseButton } from "..";
@@ -13,10 +14,10 @@ interface TopicI {
 }
 
 const Topic = () => {
+  const { t } = useTranslation("common");
   const topicsLeft: TopicI[] = [
     {
-      text: `Этот блок приветсвует тебя. \n
-    Вебсайт представляет собой некий блог обо мне и веб технологиях.`,
+      text: t('home.topic_1'),
       css: css`
         background: #121111;
         color: white;
@@ -28,8 +29,8 @@ const Topic = () => {
       `,
     },
     {
-      text: `Проекты по категориям/стэку`,
-      btn: "Тык",
+      text: t('home.topic_2'),
+      btn: t('btn.poke'),
       css: css`
         background: #2a2a2a;
         color: white;
@@ -42,9 +43,8 @@ const Topic = () => {
   ];
   const topicsRight: TopicI[] = [
     {
-      text: `На веб сайте вы можете найти мои заметки, об процессе, мыслях и
-  многом другом.`,
-      btn: "К заметкам",
+      text: t("home.topic_3"),
+      btn: t("btn.notes"),
       link: ROUTES.notes,
       css: css`
         max-width: 410px;

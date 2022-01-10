@@ -3,13 +3,9 @@ import styled from "@emotion/styled";
 import AlternateEmailIcon from "@mui/icons-material/AlternateEmail";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import useTranslation from "next-translate/useTranslation";
 import { Habr } from "shared/icons";
 
-
 const Footer = () => {
-  const { t } = useTranslation("common");
-
   const socials = [
     {
       link: "https://github.com/sieugene",

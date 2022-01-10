@@ -1,16 +1,18 @@
 import styled from "@emotion/styled";
 import { Button } from "@mui/material";
 import type { NextPage } from "next";
+import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import Link from "next/link";
 import { ROUTES } from "shared/lib";
 import { Topic } from "shared/ui";
 
 const HomePage: NextPage = () => {
+  const { t } = useTranslation("common");
   return (
     <>
       <Head>
-        <title>Sieugene | Персональный блог</title>
+        <title>Sieugene | {t("meta.personal")}</title>
         <meta
           name="description"
           content="My name is Eugene, my main area of frontend development, Next(React), Apollo. I am engaged in web development since 2019."
@@ -22,10 +24,10 @@ const HomePage: NextPage = () => {
       </Head>
       <Wrapper>
         <About>
-          <p> Меня зовут Евгений, я frontend developer.</p>
+          <p>{t("home.about")}</p>
           <Link href={ROUTES.about} prefetch={false}>
             <a href={ROUTES.about}>
-              <Button>Обо мне</Button>
+              <Button>{t("home.me")}</Button>
             </a>
           </Link>
         </About>

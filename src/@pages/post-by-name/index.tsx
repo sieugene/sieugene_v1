@@ -5,6 +5,7 @@ import { getPostByName } from "entities/post/api";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
+import { useReloadAfterChangeLang } from "shared/hooks/useReloadAfterChangeLang";
 import useSWR, { SWRConfig } from "swr";
 import { PostPageFallbackProps } from "../../../pages/post/[name]";
 
@@ -14,6 +15,7 @@ const PostByName = () => {
     router?.query?.name?.toString() || "",
     getPostByName
   );
+  useReloadAfterChangeLang();
 
   if (!source || error) {
     return <div>Ooops...</div>;

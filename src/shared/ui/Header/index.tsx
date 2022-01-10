@@ -1,13 +1,12 @@
-import { css, jsx } from "@emotion/react";
-
 import styled from "@emotion/styled";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import { Logo } from "shared/icons";
+import { useRouter } from "next/router";
 import { ROUTES } from "shared/lib";
 
 const Header = () => {
-  const { t } = useTranslation("common");
+  const { t, lang } = useTranslation("common");
+
   const links = [
     {
       title: t("links.home"),
@@ -22,18 +21,28 @@ const Header = () => {
       href: ROUTES.projects,
     },
   ];
+  const language = lang === "en" ? "ru" : "en";
+  const router = useRouter();
+
   return (
     <header>
       <Wrapper>
         <div>
-          <Link href={ROUTES.home}>
-            <a href={ROUTES.home}>
-              <Header.LogoSection>
-                <Header.StyledLogo>Ru</Header.StyledLogo>
+          <Header.LogoSection>
+            <Link
+              passHref
+              href={router.asPath}
+              locale={language}
+              key={language}
+            >
+              <Header.StyledLogo>{lang}</Header.StyledLogo>
+            </Link>
+            <Link href={ROUTES.home}>
+              <a href={ROUTES.home}>
                 <h1>Eugene.Poluakov</h1>
-              </Header.LogoSection>
-            </a>
-          </Link>
+              </a>
+            </Link>
+          </Header.LogoSection>
         </div>
 
         <Header.Links>
@@ -84,6 +93,8 @@ Header.StyledLogo = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 14px;
+  text-transform: capitalize;
+  cursor: pointer;
 `;
 
 Header.Links = styled.div`

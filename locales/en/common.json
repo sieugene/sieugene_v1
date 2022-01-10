@@ -1,8 +1,27 @@
 {
-  "main": "test text!",
   "links": {
-    "home": "home",
-    "notes": "notes",
-    "projects": "projects"
-  }
+    "home": "Home",
+    "notes": "Notes",
+    "projects": "Projects"
+  },
+  "btn": {
+    "poke": "poke",
+    "notes": "to notes"
+  },
+  "home": {
+    "about": "My name is eugene, I'm a frontend developer.",
+    "me": "About me",
+    "topic_1": "This block welcomes you. \n the website is a kind of blog about me and web technologies.",
+    "topic_2": "Projects by category/stack",
+    "topic_3": "On the web site you can find my notes, about process, thoughts and more."
+  },
+  "meta": {
+    "personal": "Personal blog"
+  },
+  "empty": {
+    "no_content": "there will be something here soon...",
+    "check_on": "for now you can look at",
+    "git": "github"
+  },
+  "date": "Date"
 }

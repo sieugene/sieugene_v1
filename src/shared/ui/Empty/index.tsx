@@ -1,10 +1,11 @@
 import { css } from "@emotion/react";
-import Link from "next/link";
+import useTranslation from "next-translate/useTranslation";
 import { FC } from "react";
 import { ROUTES } from "shared/lib";
 import { BaseButton } from "..";
 
 const Empty: FC = ({ children }) => {
+  const { t } = useTranslation("common");
   return (
     <>
       <div
@@ -30,29 +31,28 @@ const Empty: FC = ({ children }) => {
               margin-top: 30px;
             `}
           >
-            В скором времени тут что-то будет...
+            {t("empty.no_content")}
           </h1>
 
           {children}
         </div>
       </div>
-      <Link href={ROUTES.about} prefetch={false}>
-        <a href={ROUTES.about}>
-          <BaseButton
-            css={css`
-              margin-top: 30px;
+
+      <a href={ROUTES.about}>
+        <BaseButton
+          css={css`
+            margin-top: 30px;
+            background: blue;
+            color: white;
+            width: fit-content;
+            &:hover {
               background: blue;
-              color: white;
-              width: fit-content;
-              &:hover {
-                background: blue;
-              }
-            `}
-          >
-            Обо мне
-          </BaseButton>
-        </a>
-      </Link>
+            }
+          `}
+        >
+          {t("home.me")}
+        </BaseButton>
+      </a>
     </>
   );
 };
