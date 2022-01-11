@@ -20,6 +20,8 @@ const optionsTheme = {
     primary: "28px",
     text: "20px",
     small: "18px",
+    card: "16px",
+    extaSmall: "14px",
   },
   lineHeight: {
     wide: "36px",
@@ -31,9 +33,11 @@ const optionsTheme = {
     black: "#000",
     blue: "#1976d2",
     moderateBlue: "#4f4ca0",
+    white: "#ffffff",
   },
   borders: {
     grayBorder: "rgba(0, 0, 0, 0.05)",
+    moderateBlue: "#4f4ca0",
   },
 };
 
