@@ -1,9 +1,8 @@
+import fs from "fs";
 import { NextApiRequest, NextApiResponse } from "next";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
-import fs from "fs";
 import { serialize } from "next-mdx-remote/serialize";
 import path from "path";
-import { parseCookies } from "shared/lib/utils/parseCookies";
 const basepath = "src/shared/data/";
 
 export interface PostHandlerResponse {
@@ -15,11 +14,9 @@ const postHandler = async (
   res: NextApiResponse<PostHandlerResponse>
 ) => {
   const {
-    query: { name },
+    query: { name, locale = "ru" },
     method,
   } = req;
-  const cookie = parseCookies(req);
-  const locale = cookie?.NEXT_LOCALE || "en";
 
   fs.readFile(
     path.resolve(`${basepath}${locale}/${name}.mdx`),

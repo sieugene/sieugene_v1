@@ -2,13 +2,13 @@ import { ThemeProvider } from "@app";
 import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import { ReactElement, ReactNode } from "react";
-import { usePersistLocaleCookie } from "shared/hooks/usePersistLocaleCookie";
-import { Layouts } from "shared/ui";
-import "../styles/globals.css";
-import "nprogress/nprogress.css";
 import Router from "next/router";
 import NProgress from "nprogress"; //nprogress module
+import "nprogress/nprogress.css";
+import { ReactElement, ReactNode } from "react";
+import { Layouts } from "shared/ui";
+import "../styles/globals.css";
+
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
@@ -23,7 +23,6 @@ type AppPropsWithLayout = AppProps & {
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
-  usePersistLocaleCookie();
 
   return (
     <>

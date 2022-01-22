@@ -1,25 +1,48 @@
 import styled from "@emotion/styled";
+import { Skeleton } from "@mui/material";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { FC } from "react";
-import Details from "../Details";
 import Category from "../Category";
-import Title from "../Title";
 import Date from "../Date";
-import Text from "../Text";
+import Details from "../Details";
 import Label from "../Label";
 import List from "../List";
+import Text from "../Text";
+import Title from "../Title";
 
 export type PostProps = {
-  source: MDXRemoteSerializeResult<Record<string, unknown>>;
+  source?: MDXRemoteSerializeResult<Record<string, unknown>>;
+  loading: boolean;
 };
 
-const Components = { Title, Category, Details, Date, Text, Label, List };
+const Components = {
+  Title,
+  Category,
+  Details,
+  Date,
+  Text,
+  Label,
+  List,
+};
 
-const Post: FC<PostProps> = ({ source }) => {
+const Post = ({ source, loading }: PostProps) => {
   return (
     <Wrapper>
-      <MDXRemote {...source} components={Components} />
+      {loading ? (
+        <Post.Template />
+      ) : (
+        source && <MDXRemote {...source} components={Components} />
+      )}
     </Wrapper>
+  );
+};
+
+Post.Template = () => {
+  return (
+    <>
+      <Skeleton width={190} height={49} />
+      <Skeleton width={220} height={34} />
+      <Skeleton width="100%" height="100vh" />
+    </>
   );
 };
 
@@ -35,6 +58,7 @@ const Wrapper = styled.div`
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
     padding: 1rem;
   }
+  position: relative;
 `;
 
 export default Post;

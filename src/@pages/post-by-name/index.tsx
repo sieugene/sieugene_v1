@@ -2,25 +2,26 @@ import styled from "@emotion/styled";
 import { Container } from "@mui/material";
 import { Post } from "entities/post";
 import { getPostByName } from "entities/post/api";
+import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";
-import { useReloadAfterChangeLang } from "shared/hooks/useReloadAfterChangeLang";
 import useSWR, { SWRConfig } from "swr";
 import { PostPageFallbackProps } from "../../../pages/post/[name]";
 
 const PostByName = () => {
+  const { lang } = useTranslation("common");
   const router = useRouter();
   const { data: source, error } = useSWR(
-    router?.query?.name?.toString() || "",
+    [router?.query?.name?.toString() || "", lang],
     getPostByName
   );
-  useReloadAfterChangeLang();
 
-  if (!source || error) {
+  if (error) {
     return <div>Ooops...</div>;
   }
-  return <Post source={source} />;
+
+  return <Post source={source} loading={!source} />;
 };
 
 const PostPage = ({ fallback }: PostPageFallbackProps) => {

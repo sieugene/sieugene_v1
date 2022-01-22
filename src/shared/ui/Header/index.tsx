@@ -1,11 +1,11 @@
 import styled from "@emotion/styled";
+import { SwitchLanguage } from "entities/switchLanguage/ui";
 import useTranslation from "next-translate/useTranslation";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { ROUTES } from "shared/lib";
 
 const Header = () => {
-  const { t, lang } = useTranslation("common");
+  const { t } = useTranslation("common");
 
   const links = [
     {
@@ -21,30 +21,10 @@ const Header = () => {
       href: ROUTES.projects,
     },
   ];
-  const language = lang === "en" ? "ru" : "en";
-  const router = useRouter();
 
   return (
     <header>
       <Wrapper>
-        <div>
-          <Header.LogoSection>
-            <Link
-              passHref
-              href={router.asPath}
-              locale={language}
-              key={language}
-            >
-              <Header.StyledLogo>{lang}</Header.StyledLogo>
-            </Link>
-            <Link href={ROUTES.home}>
-              <a href={ROUTES.home}>
-                <h1>Eugene.Poluakov</h1>
-              </a>
-            </Link>
-          </Header.LogoSection>
-        </div>
-
         <Header.Links>
           {links?.map((link, index) => {
             return (
@@ -54,6 +34,16 @@ const Header = () => {
             );
           })}
         </Header.Links>
+        <div>
+          <Header.LogoSection>
+            <Link href={ROUTES.home}>
+              <a href={ROUTES.home}>
+                <h1>Eugene.Poluakov</h1>
+              </a>
+            </Link>
+            <SwitchLanguage />
+          </Header.LogoSection>
+        </div>
       </Wrapper>
     </header>
   );
@@ -73,7 +63,7 @@ const Wrapper = styled.div`
 Header.LogoSection = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 10px;
+  margin-left: 10px;
   ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.sm)} {
     margin-top: 10px;
   }
