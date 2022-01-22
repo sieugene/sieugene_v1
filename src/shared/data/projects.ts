@@ -11,32 +11,47 @@ export const projectsArray: CardProps[] = [
   },
   {
     category: CategoriesConstants.Frontend,
+    link: "https://github.com/clowns-party/animeover-frontend",
+    text: "Encyclopedia of anime, ongoings, genre division and more. Making your own list and rating. [Next, React]",
+    title: "animeover-frontend",
+    id: "animeover-frontend",
+  },
+  {
+    category: CategoriesConstants.Frontend,
+    link: "https://github.com/clowns-party/buylist-frontend",
+    text: "Think through your shopping list, mark it on a map, add friends. [Next, apollo, tailwind]",
+    title: "buylist-frontend",
+    id: "buylist-frontend",
+  },
+  {
+    category: CategoriesConstants.Frontend,
     link: "https://github.com/sieugene/Schat",
-    text: "Realtime Chat[React,typescript,firebase]",
+    text: "Simple web messenger. [React,typescript,firebase]",
     title: "Schat",
     id: "Schat",
   },
   {
     category: CategoriesConstants.Backend,
     link: "https://github.com/sieugene/delivery-api",
-    text: "Nest js api for delivery app",
+    text: "Nest js api for delivery app. (Nest, 2FA, graphql, realtime, redis, postgres, elastic search, Aws s3)",
     title: "Delivery-api",
     id: "delivery-api",
   },
   {
-    category: CategoriesConstants.Frontend,
-    link: "https://github.com/sieugene/mf-nextjs",
-    text: "Microfrontends using Next.js and Module Federation",
-    title: "Mf-nextjs",
-    id: "mf-nextjs",
+    category: CategoriesConstants.Backend,
+    link: "https://github.com/clowns-party/animeover",
+    text: "API for animeover. [firebase,typescript,tsoa]",
+    title: "animeover-api",
+    id: "animeover-api",
   },
   {
     category: CategoriesConstants.Backend,
-    link: "https://github.com/sieugene/buylist",
-    text: "Nest.js, graphql/rest api for buylist app",
-    title: "Buylist",
-    id: "buylist",
+    link: "https://github.com/clowns-party/buylist",
+    text: "Graphql endpoint and REST api for buylist app. [Nest, redis,postgres, typeorm]",
+    title: "buylist",
+    id: "buylist-api",
   },
+
   {
     category: CategoriesConstants.Backend,
     link: "https://github.com/sieugene/nft-marketplace-backend",
@@ -59,4 +74,3 @@ export const projectsArray: CardProps[] = [
     id: "dvideo",
   },
 ];
-
