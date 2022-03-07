@@ -1,16 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import posts from "shared/data/posts.json";
-
-export type Posts = {
-  data: PostT[];
-};
-export type PostT = {
-  title: string;
-  description: string;
-  link: string;
-  timestamp: string;
-  id: string;
-};
+import { Posts, PostT } from "./types/posts.type";
 
 export interface PostsHandlerResponse {
   data: PostT[];

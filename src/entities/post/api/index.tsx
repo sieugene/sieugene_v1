@@ -6,6 +6,5 @@ export const getPostByName = async (name: string, locale = "ru") => {
   const response = await getFetcher<PostHandlerResponse>(
     `${API_ENDPOINTS.PostByTitle}${locale}/${name}`
   );
-
   return response.data;
 };
