@@ -3,9 +3,10 @@
     {
       "id": "1",
       "title": "About",
-      "description": "About me",
+      "description": "A little article about me, what I do, what a stack, etc.",
       "link": "/post/about",
-      "timestamp": "20.20.20"
+      "timestamp": "20.20.20",
+      "category": "job"
     }
   ]
 }
