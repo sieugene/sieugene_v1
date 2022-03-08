@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import { getPosts } from "entities/posts/api";
 import useTranslation from "next-translate/useTranslation";
 import useSWR from "swr";
@@ -12,12 +13,18 @@ const PostsList = () => {
   }
 
   return (
-    <div>
+    <PostsList.Wrapper>
       {posts?.map((post) => (
         <PostsCard {...post} key={post.id} />
       ))}
-    </div>
+    </PostsList.Wrapper>
   );
 };
+
+PostsList.Wrapper = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+`;
 
 export default PostsList;

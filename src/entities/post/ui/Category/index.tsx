@@ -1,12 +1,15 @@
+import { SerializedStyles } from "@emotion/react";
 import styled from "@emotion/styled";
+
 import { PostCategoryT } from "entities/post/model/types";
 import { FC } from "react";
 
 export type CategoryProps = {
   category: PostCategoryT;
+  styleCss?: SerializedStyles;
 };
-const Category: FC<CategoryProps> = ({ category }) => {
-  return <Paragraph>{category}</Paragraph>;
+const Category: FC<CategoryProps> = ({ category, styleCss }) => {
+  return <Paragraph css={styleCss}>{category}</Paragraph>;
 };
 
 const Paragraph = styled.p`

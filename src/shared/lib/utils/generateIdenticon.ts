@@ -26,7 +26,6 @@ export const generateIdenticon = (
   try {
     const hash = cyrb53(value)?.toString();
     const options = {
-      // background: [255, 255, 255, 255],
       margin: 0.2,
       size,
       format: "svg",
