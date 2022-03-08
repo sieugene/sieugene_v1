@@ -9,10 +9,14 @@ export type CategoryProps = {
   styleCss?: SerializedStyles;
 };
 const Category: FC<CategoryProps> = ({ category, styleCss }) => {
-  return <Paragraph css={styleCss}>{category}</Paragraph>;
+  return (
+    <Paragraph css={styleCss} category={category}>
+      {category}
+    </Paragraph>
+  );
 };
 
-const Paragraph = styled.p`
+const Paragraph = styled.p<{ category: PostCategoryT }>`
   display: flex;
   align-items: center;
   color: ${(props) => props.theme.colors.grayish};
@@ -22,7 +26,14 @@ const Paragraph = styled.p`
     width: 10px;
     height: 10px;
     border-radius: ${({ theme }) => theme.borderRadius.default};
-    background: ${(props) => props.theme.colors.limeGreen};
+
+    ${({ category, theme }) => {
+      if (category === "job") {
+        return `background: ${theme.colors.limeGreen};`;
+      }else{
+        return `background: ${theme.colors.moderateBlue};`;
+      }
+    }}
     margin-right: ${({ theme }) => theme.spaces.default};
     display: inline-block;
   }

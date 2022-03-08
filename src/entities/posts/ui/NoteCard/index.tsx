@@ -28,7 +28,7 @@ const NoteCard = ({
 
   return (
     <Card.Wrapper>
-      <a href={link} target="_blank" rel="noreferrer">
+      <a href={link} rel="noreferrer">
         <Image
           width={300}
           height={400}
