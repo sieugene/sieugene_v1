@@ -1,4 +1,4 @@
-import Identicon from "identicon.js";
+import Identicon, { IdenticonOptions } from "identicon.js";
 
 // Generate hash for Identicon
 const cyrb53 = function (str: string, seed = 0) {
@@ -18,14 +18,18 @@ const cyrb53 = function (str: string, seed = 0) {
   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
 };
 // Genereate image
-export const generateIdenticon = (value: string, size = 100) => {
+export const generateIdenticon = (
+  value: string,
+  extraOptions: IdenticonOptions = {},
+  size = 100
+) => {
   try {
     const hash = cyrb53(value)?.toString();
     const options = {
-      // background: [255, 255, 255, 255],
       margin: 0.2,
       size,
       format: "svg",
+      ...extraOptions,
     };
     // @ts-ignore
     const data = new Identicon(hash, options).toString();

@@ -7,34 +7,35 @@ import { CategoriesConstants } from "widgets/projects-categories/model/types";
 export type CardProps = {
   title: string;
   text: string;
-  category: CategoriesConstants;
+  category: CategoriesConstants | string;
   link: string;
   id: string;
 };
-const Card: FC<CardProps> = ({
+const Card = ({
   title = "-",
   text = "-",
   category = "-",
   link = "",
   id = "1",
-}) => {
+}: CardProps) => {
   return (
-    <Wrapper>
+    <Card.Wrapper>
       <a href={link} target="_blank" rel="noreferrer">
         <Image width={300} height={400} src={generateIdenticon(id)} alt="" />
-        <Content>
-          <CardHeader>
-            <Title>{title}</Title> <Category>{category}</Category>
-          </CardHeader>
+        <Card.Content>
+          <Card.CardHeader>
+            <Card.Title>{title}</Card.Title>{" "}
+            <Card.Category>{category}</Card.Category>
+          </Card.CardHeader>
 
-          <Text>{text}</Text>
-        </Content>
+          <Card.Text>{text}</Card.Text>
+        </Card.Content>
       </a>
-    </Wrapper>
+    </Card.Wrapper>
   );
 };
 
-const Wrapper = styled.div`
+Card.Wrapper = styled.div`
   box-shadow: ${({ theme }) => theme.shadows[1]};
   border-radius: ${({ theme }) => theme.borderRadius.large};
   height: 400px;
@@ -57,7 +58,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Content = styled.div`
+Card.Content = styled.div`
   box-shadow: ${({ theme }) => theme.shadows[1]};
   position: absolute;
   left: 0;
@@ -71,25 +72,25 @@ const Content = styled.div`
   width: 90%;
 `;
 
-const Title = styled.h3`
+Card.Title = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.extaSmall};
   color: ${({ theme }) => theme.colors.moderateBlue};
   font-weight: 500;
 `;
 
-const Category = styled(Title)`
+Card.Category = styled(Card.Title)`
   font-weight: 300;
 `;
 
-const CardHeader = styled.div`
+Card.CardHeader = styled.div`
   display: flex;
   margin-bottom: 10px;
-  ${Category} {
+  ${Card.Category} {
     margin-left: 10px;
   }
 `;
 
-const Text = styled.p`
+Card.Text = styled.p`
   font-size: ${({ theme }) => theme.fontSize.card};
   font-weight: 500;
   line-height: 23px;
