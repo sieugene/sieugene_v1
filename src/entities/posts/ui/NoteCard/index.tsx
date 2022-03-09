@@ -4,6 +4,7 @@ import { PostT } from "@server/handlers/posts/types/posts.type";
 import Category from "entities/post/ui/Category";
 import { IdenticonOptions } from "identicon.js";
 import Image from "next/image";
+import Link from "next/link";
 import { generateIdenticon } from "shared/lib/utils/generateIdenticon";
 import { Card } from "shared/ui";
 
@@ -28,34 +29,36 @@ const NoteCard = ({
 
   return (
     <Card.Wrapper>
-      <a href={link} rel="noreferrer">
-        <Image
-          width={300}
-          height={400}
-          src={generateIdenticon(id, {
-            foreground: [42, 42, 42, 42],
-            background,
-          })}
-          alt=""
-        />
-        <NoteCard.Content variant={variant}>
-          <Category
-            category={category}
-            styleCss={css`
-              font-size: ${theme.fontSize.extaSmall};
-              color: ${theme.colors.moderateBlue};
-              font-weight: 300;
-              text-transform: capitalize;
-              margin-bottom: 5px;
-            `}
+      <Link href={link}>
+        <a href={link}>
+          <Image
+            width={300}
+            height={400}
+            src={generateIdenticon(id, {
+              foreground: [42, 42, 42, 42],
+              background,
+            })}
+            alt=""
           />
-          <Card.CardHeader>
-            <Card.Title>{title}</Card.Title>{" "}
-          </Card.CardHeader>
+          <NoteCard.Content variant={variant}>
+            <Category
+              category={category}
+              styleCss={css`
+                font-size: ${theme.fontSize.extaSmall};
+                color: ${theme.colors.moderateBlue};
+                font-weight: 300;
+                text-transform: capitalize;
+                margin-bottom: 5px;
+              `}
+            />
+            <Card.CardHeader>
+              <Card.Title>{title}</Card.Title>{" "}
+            </Card.CardHeader>
 
-          <Card.Text>{description}</Card.Text>
-        </NoteCard.Content>
-      </a>
+            <Card.Text>{description}</Card.Text>
+          </NoteCard.Content>
+        </a>
+      </Link>
     </Card.Wrapper>
   );
 };

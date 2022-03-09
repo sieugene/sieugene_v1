@@ -19,7 +19,7 @@ const HomePage: NextPage = () => {
         />
         <meta
           name="keywords"
-          content="sieugene, eugene poluakov, Евгений Поляков, frontend developer, react develop, russia"
+          content="sieugene, eugene poluakov, Евгений Поляков, frontend developer, react developer, russia"
         />
       </Head>
       <Wrapper>
