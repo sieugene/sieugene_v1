@@ -3,6 +3,20 @@ import { CategoriesConstants } from "widgets/projects-categories/model/types";
 
 export const projectsArray: CardProps[] = [
   {
+    category: CategoriesConstants.Other,
+    link: "https://github.com/Alium-Finance",
+    text: "Contibute DEFI project.",
+    title: "DEFI project",
+    id: "DEFI",
+  },
+  {
+    category: CategoriesConstants.Frontend,
+    link: "https://github.com/sieugene/dashboard",
+    text: "Fullstack dashboard app with dragndrop. [Next,React]",
+    title: "Dashboard",
+    id: "Dashboard",
+  },
+  {
     category: CategoriesConstants.Frontend,
     link: "https://github.com/sieugene/dashboard",
     text: "Fullstack dashboard app with dragndrop. [Next,React]",
@@ -72,5 +86,12 @@ export const projectsArray: CardProps[] = [
     text: "Upload video on ipfs and smart contract for dvideo",
     title: "Dvideo",
     id: "dvideo",
+  },
+  {
+    category: CategoriesConstants.Mobile,
+    link: "https://github.com/sieugene/rate-interview",
+    text: "Mobile application for evaluating companies and vacancies. [react-native]",
+    title: "Rate-interview",
+    id: "rate-interview",
   },
 ];

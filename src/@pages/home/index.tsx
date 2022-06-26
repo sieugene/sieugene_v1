@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button } from "@mui/material";
+import { Button, css } from "@mui/material";
 import type { NextPage } from "next";
 import useTranslation from "next-translate/useTranslation";
 import Head from "next/head";
@@ -26,7 +26,12 @@ const HomePage: NextPage = () => {
         <About>
           <p>{t("home.about")}</p>
           <Link href={ROUTES.about} prefetch={false}>
-            <a href={ROUTES.about}>
+            <a
+              href={ROUTES.about}
+              css={css`
+                text-decoration: underline;
+              `}
+            >
               <Button>{t("home.me")}</Button>
             </a>
           </Link>

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import useTranslation from "next-translate/useTranslation";
 import { useState } from "react";
 import { projectsArray } from "shared/data/projects";
-import { Card } from "shared/ui";
+import { BaseTypography, Card } from "shared/ui";
 import { ProjectsCategories } from "widgets/projects-categories";
 import { CategoriesConstants } from "widgets/projects-categories/model/types";
 
@@ -11,17 +11,44 @@ const Projects = () => {
   const { t } = useTranslation("common");
   const [active, setActive] = useState(CategoriesConstants.Frontend);
 
-  const projects = projectsArray.filter((card) => card.category === active);
+  const projects = projectsArray;
 
   return (
     <>
-      {/* <Search /> */}
       <div
         css={css`
-          margin-top: 50px;
+          margin-top: 25px;
         `}
       >
-        <ProjectsCategories active={active} setActive={setActive} />
+        <BaseTypography
+          variant="h3"
+          css={css`
+            font-weight: 700;
+            color: cornflowerblue;
+          `}
+        >
+          {t("links.projects")}
+        </BaseTypography>
+        <BaseTypography
+          variant="caption"
+          css={css`
+            display: block;
+            white-space: pre-line;
+          `}
+        >
+          {t("projects.info")}
+        </BaseTypography>
+        <BaseTypography
+          variant="caption"
+          css={css`
+            display: block;
+            white-space: pre-line;
+            font-weight: bold;
+          `}
+        >
+          {t("projects.warning")}
+        </BaseTypography>
+        {/* <ProjectsCategories active={active} setActive={setActive} /> */}
       </div>
 
       <Cards>
@@ -48,7 +75,7 @@ const Projects = () => {
 };
 
 const Cards = styled.div`
-  margin-top: 50px;
+  margin-top: 25px;
   margin-bottom: 50px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);

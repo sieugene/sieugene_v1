@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 import { getPosts } from "entities/posts/api";
+import { NoteCard } from "entities/posts/ui";
 import useTranslation from "next-translate/useTranslation";
 import useSWR from "swr";
-import { NoteCard } from "entities/posts/ui";
 
 const PostsList = () => {
+  const { t } = useTranslation();
   const { lang } = useTranslation("common");
   const { data: posts, error } = useSWR([lang], getPosts);
 
@@ -22,16 +23,11 @@ const PostsList = () => {
 };
 
 PostsList.Wrapper = styled.div`
-  margin-top: 50px;
-  margin-bottom: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
-  grid-auto-rows: minmax(min-content, max-content);
-  grid-gap: 30px;
-  justify-content: space-between;
-  ${({ theme }) => theme.breakpoints.down(theme.breakpoints.values.md)} {
-    justify-content: center;
-  }
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 25px;
 `;
 
 export default PostsList;

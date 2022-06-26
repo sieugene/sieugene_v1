@@ -19,33 +19,29 @@ const Card = ({
   id = "1",
 }: CardProps) => {
   return (
-    <Card.Wrapper>
-      <a href={link} target="_blank" rel="noreferrer">
-        <Image width={300} height={400} src={generateIdenticon(id)} alt="" />
-        <Card.Content>
-          <Card.CardHeader>
-            <Card.Title>{title}</Card.Title>{" "}
-            <Card.Category>{category}</Card.Category>
-          </Card.CardHeader>
+    <Card.Root href={link} target="_blank" rel="noreferrer">
+      <Card.Content>
+        <Image
+          width={30}
+          height={30}
+          src={generateIdenticon(id, {
+            background: [0, 0, 0, 0],
+          })}
+          alt=""
+        />
+        <Card.CardHeader>
+          <Card.Title>{title}</Card.Title>{" "}
+          <Card.Category>{category}</Card.Category>
+        </Card.CardHeader>
 
-          <Card.Text>{text}</Card.Text>
-        </Card.Content>
-      </a>
-    </Card.Wrapper>
+        <Card.Text>{text}</Card.Text>
+      </Card.Content>
+    </Card.Root>
   );
 };
 
-Card.Wrapper = styled.div`
-  box-shadow: ${({ theme }) => theme.shadows[1]};
-  border-radius: ${({ theme }) => theme.borderRadius.large};
-  height: 400px;
-  width: 300px;
+Card.Root = styled.a`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  overflow: hidden;
   img {
     width: 100%;
     height: 100%;
@@ -60,16 +56,10 @@ Card.Wrapper = styled.div`
 
 Card.Content = styled.div`
   box-shadow: ${({ theme }) => theme.shadows[1]};
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  bottom: 20px;
   padding: 15px;
   background: #fffffff0;
   border-radius: ${({ theme }) => theme.borderRadius.default};
-  width: 90%;
+  width: 100%;
 `;
 
 Card.Title = styled.h3`

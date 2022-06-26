@@ -23,5 +23,13 @@
     "check_on": "You can also look at",
     "git": "github"
   },
+  "projects": {
+    "info": "Here is a list of my pet projects or what I have been working on while studying.",
+    "warning": "(Projects published via heroku or vercel may not work correctly due to restrictions of the free tariff,\n please see the code or run locally if the application does not work correctly in deploy)."
+  },
+  "notes": {
+    "title": "Blog",
+    "info": "Here you can find my articles."
+  },
   "date": "Date"
 }
