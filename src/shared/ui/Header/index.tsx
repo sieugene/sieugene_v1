@@ -38,7 +38,7 @@ const Header = () => {
           <Header.LogoSection>
             <Link href={ROUTES.home}>
               <a href={ROUTES.home}>
-                <h1>Eugene.Poluakov</h1>
+                <h1>{t("fullname")}</h1>
               </a>
             </Link>
             <SwitchLanguage />

@@ -14,7 +14,7 @@ const postHandler = async (
   res: NextApiResponse<PostHandlerResponse>
 ) => {
   const {
-    query: { name, locale = "ru" },
+    query: { name, locale = "en" },
     method,
   } = req;
 

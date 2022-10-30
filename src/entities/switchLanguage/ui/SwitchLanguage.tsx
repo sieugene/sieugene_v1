@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 
 const SwitchLanguage = () => {
   const { lang } = useTranslation("common");
-  const language = lang === "en" ? "ru" : "en";
+  const language = lang === "en" ? "ja" : "en";
   const router = useRouter();
   return (
     <Link passHref href={router.asPath} locale={language} key={language}>
