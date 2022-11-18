@@ -12,7 +12,7 @@ const optionsTheme = {
   },
   borderRadius: {
     default: "10px",
-    large: "20px",
+    large: "15px",
   },
   fontSize: {
     big: "40px",

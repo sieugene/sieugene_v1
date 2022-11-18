@@ -5,7 +5,6 @@
       "title": "About me and more",
       "description": "A little article about me, what I do, what a stack, etc.",
       "link": "/post/about",
-      "timestamp": "19.12.2021",
       "category": "job"
     },
     {
@@ -13,7 +12,6 @@
       "title": "Update website",
       "description": "My first test post about my site.",
       "link": "/post/update",
-      "timestamp": "19.12.2021",
       "category": "other"
     }
   ]

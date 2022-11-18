@@ -8,12 +8,13 @@ export type PostDetailsProps = CategoryProps & DateProps;
 const Details: FC<PostDetailsProps> = ({ category, date }) => {
   return (
     <DetailsList>
-      <li>
+      <Date date={date} />
+      {/* <li>
         <Category category={category} />
-      </li>
-      <li>
+      </li> */}
+      {/* <li>
         <Date date={date} />
-      </li>
+      </li> */}
     </DetailsList>
   );
 };
@@ -23,11 +24,8 @@ const DetailsList = styled.ul`
   list-style: none;
   padding: 0;
   margin: 25px 0 0;
-  background: white;
-  border-radius: ${({ theme }) => theme.borderRadius.default};
   padding: 7px;
   width: fit-content;
-  box-shadow: ${({ theme }) => theme.shadows[1]};
   li {
     display: flex;
     align-items: center;

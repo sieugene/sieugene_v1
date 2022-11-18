@@ -18,13 +18,6 @@ export const projectsArray: CardProps[] = [
   },
   {
     category: CategoriesConstants.Frontend,
-    link: "https://github.com/sieugene/dashboard",
-    text: "Fullstack dashboard app with dragndrop. [Next,React]",
-    title: "Dashboard",
-    id: "Dashboard",
-  },
-  {
-    category: CategoriesConstants.Frontend,
     link: "https://github.com/clowns-party/animeover-frontend",
     text: "Encyclopedia of anime, ongoings, genre division and more. Making your own list and rating. [Next, React]",
     title: "animeover-frontend",

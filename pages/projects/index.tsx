@@ -1,10 +1,10 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import useTranslation from "next-translate/useTranslation";
+import Head from 'next/head';
 import { useState } from "react";
 import { projectsArray } from "shared/data/projects";
 import { BaseTypography, Card } from "shared/ui";
-import { ProjectsCategories } from "widgets/projects-categories";
 import { CategoriesConstants } from "widgets/projects-categories/model/types";
 
 const Projects = () => {
@@ -15,6 +15,9 @@ const Projects = () => {
 
   return (
     <>
+      <Head>
+        <title>Sieugene | Projects</title>
+      </Head>
       <div
         css={css`
           margin-top: 25px;

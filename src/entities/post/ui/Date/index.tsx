@@ -3,16 +3,26 @@ import useTranslation from "next-translate/useTranslation";
 import { FC } from "react";
 
 export type DateProps = {
-  date: string;
+  date: number;
 };
-const Date: FC<DateProps> = ({ date }) => {
+const DateTab: FC<DateProps> = ({ date }) => {
   const { t } = useTranslation("common");
+
   return (
     <Paragraph>
-      {t("date")}: {date}
+      {new Intl.DateTimeFormat('default', {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric"
+    }).format(date)}
     </Paragraph>
   );
 };
+
+
 
 const Paragraph = styled.p`
   display: flex;
@@ -21,4 +31,4 @@ const Paragraph = styled.p`
   font-weight: ${(props) => props.theme.typography.fontWeightLight};
 `;
 
-export default Date;
+export default DateTab;
