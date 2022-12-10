@@ -1,18 +1,25 @@
 {
-  "data": [
-    {
-      "id": "1",
-      "title": "About me and more",
-      "description": "A little article about me, what I do, what a stack, etc.",
-      "link": "/post/about",
-      "category": "job"
-    },
-    {
-      "id": "2",
-      "title": "Update website",
-      "description": "My first test post about my site.",
-      "link": "/post/update",
-      "category": "other"
-    }
-  ]
+    "data": [
+        {
+            "id": "1",
+            "title": "About me and more",
+            "description": "A little article about me, what I do, what a stack, etc.",
+            "link": "/post/about",
+            "category": "job"
+        },
+        {
+            "id": "2",
+            "title": "Update website",
+            "description": "My first test post about my site.",
+            "link": "/post/update",
+            "category": "other"
+        },
+        {
+            "id": "3",
+            "title": "Update and support pet projects.",
+            "description": "About the problems of supporting projects.",
+            "link": "/post/pet-projects",
+            "category": "other"
+        }
+    ]
 }
