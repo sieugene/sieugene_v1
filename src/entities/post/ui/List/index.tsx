@@ -1,15 +1,13 @@
-import { css } from "@emotion/react";
-import { FC } from "react";
+import styled from '@emotion/styled'
+import React from 'react'
 
-const List: FC = ({ children }) => {
-  return (
-    <ul
-      css={css`
-        margin-left: 33px;
-      `}
-    >
-      {children}
-    </ul>
-  );
-};
-export default List;
+const List = ({ children }: { children: React.ReactNode }) => {
+    return <List.Root>{children}</List.Root>
+}
+List.Root = styled.ul`
+    margin-left: 33px;
+    li {
+        margin-bottom: 8px;
+    }
+`
+export default List
