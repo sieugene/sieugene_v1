@@ -1,16 +1,30 @@
-import styled from "@emotion/styled";
-import { FC } from "react";
+import styled from '@emotion/styled'
+import { FC } from 'react'
 
-const Label: FC = ({ children }) => {
-  return <H2>{children}</H2>;
-};
+type Props = {
+    as?: 'link'
+}
+
+const Label: FC<Props> = ({ children, as }) => {
+    const Component = as === 'link' ? Link : H2
+    return <Component>{children}</Component>
+}
 
 const H2 = styled.h2`
-  font-weight: ${(props) => props.theme.typography.fontWeightBold};
-  font-size: ${(props) => props.theme.fontSize.medium};
-  margin-top: ${(props) => props.theme.spaces.big};
-  border-bottom: 1px solid ${(props) => props.theme.borders.grayBorder};
-  padding-bottom: ${(props) => props.theme.spaces.medium}; ;
-`;
+    font-weight: ${(props) => props.theme.typography.fontWeightBold};
+    font-size: ${(props) => props.theme.fontSize.medium};
+    margin-top: ${(props) => props.theme.spaces.big};
+    border-bottom: 1px solid ${(props) => props.theme.borders.grayBorder};
+    padding-bottom: ${(props) => props.theme.spaces.medium};
+`
 
-export default Label;
+const Link = styled(H2)`
+    color: ${({ theme }) => theme.colors.blue};
+    margin-left: 4px;
+    margin-right: 4px;
+    &:hover {
+        text-decoration: underline;
+    }
+`
+
+export default Label

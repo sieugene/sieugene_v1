@@ -1,36 +1,37 @@
 {
-  "fullname": "Eugene.Poluakov",
-  "links": {
-    "home": "Home",
-    "notes": "Notes",
-    "projects": "Projects"
-  },
-  "btn": {
-    "poke": "poke",
-    "notes": "to notes"
-  },
-  "home": {
-    "about": "My name is Eugene, I'm a frontend developer.",
-    "me": "About me",
-    "topic_1": "This block welcomes you. \n the website is a kind of blog about me and web technologies.",
-    "topic_2": "Projects by category/stack",
-    "topic_3": "On the web site you can find my notes, about process, thoughts and more."
-  },
-  "meta": {
-    "personal": "Personal blog"
-  },
-  "empty": {
-    "no_content": "there will be something here soon...",
-    "check_on": "You can also look at",
-    "git": "github"
-  },
-  "projects": {
-    "info": "Here is a list of my pet projects or what I have been working on while studying.",
-    "warning": "(Projects published via heroku or vercel may not work correctly due to restrictions of the free tariff,\n please see the code or run locally if the application does not work correctly in deploy)."
-  },
-  "notes": {
-    "title": "Blog",
-    "info": "Here you can find my articles."
-  },
-  "date": "Date"
+    "fullname": "Eugene.Poluakov",
+    "links": {
+        "home": "Home",
+        "notes": "Notes",
+        "projects": "Projects"
+    },
+    "btn": {
+        "poke": "poke",
+        "notes": "to notes"
+    },
+    "home": {
+        "about": "My name is Eugene, I'm a frontend developer.",
+        "me": "About me",
+        "topic_1": "This block welcomes you. \n the website is a kind of blog about me and web technologies.",
+        "topic_2": "Projects by category/stack",
+        "topic_3": "On the web site you can find my notes, about process, thoughts and more."
+    },
+    "meta": {
+        "personal": "Personal blog",
+        "description": "My name is Eugene, my main area of frontend development, Next(React), Apollo. I am engaged in web development since 2019."
+    },
+    "empty": {
+        "no_content": "there will be something here soon...",
+        "check_on": "You can also look at",
+        "git": "github"
+    },
+    "projects": {
+        "info": "Here is a list of my pet projects or what I have been working on while studying.",
+        "warning": "(Projects published via heroku or vercel may not work correctly due to restrictions of the free tariff,\n please see the code or run locally if the application does not work correctly in deploy)."
+    },
+    "notes": {
+        "title": "Blog",
+        "info": "Here you can find my articles."
+    },
+    "date": "Date"
 }

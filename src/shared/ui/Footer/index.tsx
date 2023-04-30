@@ -28,7 +28,7 @@ const Footer = () => {
             icon: <LinkedInIcon />,
         },
         {
-            link: 'mailto:sieugene@mail.ru',
+            link: 'mailto:eugenepoluakov@gmail.com',
             icon: <AlternateEmailIcon />,
             withoutTarget: true,
         },

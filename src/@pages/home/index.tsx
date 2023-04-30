@@ -15,11 +15,11 @@ const HomePage: NextPage = () => {
         <title>Sieugene | {t("meta.personal")}</title>
         <meta
           name="description"
-          content="My name is Eugene, my main area of frontend development, Next(React), Apollo. I am engaged in web development since 2019."
+          content={t("meta.description")}
         />
         <meta
           name="keywords"
-          content="sieugene, eugene poluakov, Евгений Поляков, frontend developer, react developer, russia"
+          content="sieugene, eugene poluakov, Евгений Поляков, frontend developer, react developer, russia, フロントエンド開発者、リアクト開発者, 日本"
         />
       </Head>
       <Wrapper>
