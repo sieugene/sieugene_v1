@@ -8,28 +8,28 @@ type Certificate = {
 export const certificates: Certificate[] = [
     {
         name: 'DWCERT-070-6 "Protecting Windows workstations and file servers from the actions of encryption programs',
-        link: 'https://st.drweb.com/upload/c82d21d55154df8406cfda4a8271bdc7_1575317372_6481527_tcrt.png',
+        link: '/certificates/c82d21d55154df8406cfda4a8271bdc7_1575317372_6481527_tcrt.png',
         externalLink: '',
         organization: 'Dr.Web',
         year: 2021,
     },
     {
         name: 'Programming in Python',
-        link: 'https://stepik.org/cert/181976',
+        link: '/certificates/stepik-certificate-67-dc3c748.pdf',
         externalLink: '',
         organization: 'Academy.Yandex',
         year: 2019,
     },
     {
         name: 'Web technologies',
-        link: 'https://stepik.org/cert/152016',
+        link: '/certificates/stepik-certificate-154-f465374.pdf',
         externalLink: '',
         organization: 'Mail.Ru Group',
         year: 2018,
     },
     {
         name: 'Introduction to Programming (C++)',
-        link: 'https://stepik.org/cert/151388',
+        link: '/certificates/stepik-certificate-363-035e68c.pdf',
         externalLink: '',
         organization: 'Academy.Yandex',
         year: 2018,
