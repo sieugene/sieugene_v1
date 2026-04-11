@@ -1,9 +1,7 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Switch dark mode from media query to class-based */
+@variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +10,69 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+}
+
+/* Smooth scrolling + theme transition */
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+html.dark {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+
+/* Prose styles for MDX */
+.prose {
+  --tw-prose-body: theme(colors.zinc.700);
+  --tw-prose-headings: theme(colors.zinc.900);
+  --tw-prose-code: theme(colors.zinc.800);
+  --tw-prose-pre-bg: theme(colors.zinc.950);
+}
+
+.dark .prose {
+  --tw-prose-body: theme(colors.zinc.300);
+  --tw-prose-headings: theme(colors.zinc.100);
+  --tw-prose-code: theme(colors.zinc.200);
+}
+
+/* Code blocks */
+pre {
+  overflow-x: auto;
+  border-radius: 0.75rem;
+  border: 1px solid theme(colors.zinc.200);
+  padding: 1.25rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  background: theme(colors.zinc.950) !important;
+  color: theme(colors.zinc.100) !important;
+}
+
+.dark pre {
+  border-color: theme(colors.zinc.800);
+}
+
+code:not(pre code) {
+  background: theme(colors.zinc.100);
+  color: theme(colors.zinc.800);
+  padding: 0.15em 0.4em;
+  border-radius: 0.3em;
+  font-size: 0.85em;
+}
+
+.dark code:not(pre code) {
+  background: theme(colors.zinc.800);
+  color: theme(colors.zinc.200);
 }
