@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '../globals.css'
 import { locales, defaultLocale, type Locale } from '@/lib/i18n'
-import Nav from '@/components/Nav'
+import Nav from '@/shared/ui/Nav'
 
 
 export const metadata: Metadata = {
