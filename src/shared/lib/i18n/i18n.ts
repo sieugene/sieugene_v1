@@ -25,8 +25,10 @@ export const translations = {
     },
     about: {
       title: "About me",
-      body: "I'm a frontend engineer with 6+ years of experience, specialised in React, Next.js, and TypeScript. Based in Japan, I build fast, accessible, and well-crafted products. Currently exploring machine learning on the side.",
+      body: "Frontend engineer with 7+ years of experience. Started with PHP, moved to React in 2018 — been here since. I worked on the frontend side for a long time, then expanded into fullstack. I care about clean architecture, readable code, and keeping up with what's actually useful in the ecosystem. Currently based in Japan, actively exploring machine learning on the side.",
       stack: "Stack",
+      timeline: "Timeline",
+      alsoWorkedWith: "Also worked with",
     },
     projects: {
       title: "Projects",
@@ -65,8 +67,10 @@ export const translations = {
     },
     about: {
       title: "Обо мне",
-      body: "Фронтенд-разработчик с опытом 6+ лет, специализируюсь на React, Next.js и TypeScript. Живу в Японии, создаю быстрые и хорошо продуманные продукты. Параллельно изучаю машинное обучение.",
+      body: "Фронтенд-разработчик с опытом 7+ лет. Начинал с PHP, в 2018 году перешёл на React — с тех пор здесь. Долгое время работал на фронтенде, потом расширился в fullstack. Ценю чистую архитектуру, читаемый код и слежу за тем, что реально полезно в экосистеме. Сейчас живу в Японии, параллельно изучаю машинное обучение.",
       stack: "Стек",
+      timeline: "История",
+      alsoWorkedWith: "Также работал с",
     },
     projects: {
       title: "Проекты",
@@ -104,8 +108,10 @@ export const translations = {
     },
     about: {
       title: "自己紹介",
-      body: "React・Next.js・TypeScriptを専門とする、経験6年以上のフロントエンドエンジニアです。日本在住。速くてアクセシブルなプロダクトを追求しています。趣味で機械学習も勉強中。",
+      body: "7年以上の経験を持つフロントエンドエンジニアです。PHPからスタートし、2018年にReactへ移行。長くフロントエンドを専門にしてきましたが、その後フルスタックにも領域を広げました。クリーンなアーキテクチャと読みやすいコードを大切にし、エコシステムの動向を追い続けています。現在は日本在住。機械学習も独学中。",
       stack: "スタック",
+      timeline: "経歴",
+      alsoWorkedWith: "使用経験あり",
     },
     projects: {
       title: "プロジェクト",
