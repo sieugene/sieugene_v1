@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { locales, type Locale } from '@/lib/i18n'
-import ThemeToggle from '@/shared/ui/ThemeToggle'
+import ThemeToggle from '@/features/theme/ui/ThemeToggle'
 
 const localeLabel: Record<Locale, string> = {
   en: 'EN',
