@@ -1,12 +1,12 @@
-import Link from 'next/link'
-import { getT, locales, defaultLocale, type Locale } from '@/lib/i18n'
-import { getAllPosts } from '@/lib/mdx'
+import Link from "next/link";
 
-export default async function BlogPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale: raw } = await params
-  const locale = locales.includes(raw as Locale) ? (raw as Locale) : defaultLocale
-  const t = getT(locale)
-  const posts = getAllPosts(locale)
+import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
+import { getAllPosts } from "@/shared/lib/mdx";
+import { i18formatDate } from "@/shared/lib/i18n/i18n.date";
+
+export default async function BlogPage({ params }: AsyncPageLocalesProps) {
+  const { t, locale } = await getClientT(params);
+  const posts = getAllPosts(locale);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-20 space-y-12">
@@ -32,10 +32,11 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                     {post.title}
                   </h2>
                   <time className="text-xs font-mono text-zinc-400 shrink-0 mt-1">
-                    {new Date(post.date).toLocaleDateString(
-                      locale === 'ja' ? 'ja-JP' : locale === 'ru' ? 'ru-RU' : 'en-US',
-                      { year: 'numeric', month: 'short', day: 'numeric' }
-                    )}
+                    {i18formatDate(post.date, locale, {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
                   </time>
                 </div>
                 {post.description && (
@@ -46,7 +47,10 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
                 {post.tags && post.tags.length > 0 && (
                   <div className="flex flex-wrap gap-1.5 mt-1">
                     {post.tags.map((tag) => (
-                      <span key={tag} className="text-xs font-mono text-zinc-400 dark:text-zinc-500">
+                      <span
+                        key={tag}
+                        className="text-xs font-mono text-zinc-400 dark:text-zinc-500"
+                      >
                         #{tag}
                       </span>
                     ))}
@@ -58,5 +62,5 @@ export default async function BlogPage({ params }: { params: Promise<{ locale: s
         </ul>
       )}
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
 import { ContactGroupBtns } from "@/entities/contact/ui/ContactGroupBtns";
-import { defaultLocale, getT, locales, type Locale } from "@/lib/i18n";
-import { getAllPosts } from "@/lib/mdx";
+import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
+import { getAllPosts } from "@/shared/lib/mdx";
 import { Button } from "@/shared/ui/Button";
 import Link from "next/link";
 
@@ -29,17 +29,8 @@ const projects = [
   },
 ];
 
-function toLocale(s: string): Locale {
-  return locales.includes(s as Locale) ? (s as Locale) : defaultLocale;
-}
-
-export default async function HomePage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const locale = toLocale((await params).locale);
-  const t = getT(locale);
+export default async function HomePage({ params }: AsyncPageLocalesProps) {
+  const { t, locale } = await getClientT(params);
   const posts = getAllPosts(locale).slice(0, 3);
 
   return (

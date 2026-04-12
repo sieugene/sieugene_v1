@@ -1,34 +1,32 @@
-import { getT, locales, defaultLocale, type Locale } from '@/lib/i18n'
+import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
 
 const projects = [
   {
-    name: 'yomikomi',
+    name: "yomikomi",
     desc: {
-      en: 'Browser-based Japanese OCR app using PaddleOCR and ONNX Runtime Web. Runs fully client-side with iOS Safari WebAssembly memory optimisations.',
-      ru: 'Браузерное приложение для японского OCR на PaddleOCR и ONNX Runtime Web. Работает полностью на клиенте с оптимизациями памяти для iOS Safari.',
-      ja: 'PaddleOCRとONNX Runtime Webを使ったブラウザベースの日本語OCRアプリ。iOS SafariのWASMメモリ最適化を含み、完全にクライアントサイドで動作します。',
+      en: "Browser-based Japanese OCR app using PaddleOCR and ONNX Runtime Web. Runs fully client-side with iOS Safari WebAssembly memory optimisations.",
+      ru: "Браузерное приложение для японского OCR на PaddleOCR и ONNX Runtime Web. Работает полностью на клиенте с оптимизациями памяти для iOS Safari.",
+      ja: "PaddleOCRとONNX Runtime Webを使ったブラウザベースの日本語OCRアプリ。iOS SafariのWASMメモリ最適化を含み、完全にクライアントサイドで動作します。",
     },
-    tech: ['Next.js', 'TypeScript', 'PaddleOCR', 'ONNX', 'WASM'],
-    github: 'https://github.com/sieugene',
+    tech: ["Next.js", "TypeScript", "PaddleOCR", "ONNX", "WASM"],
+    github: "https://github.com/sieugene",
     live: null,
   },
   {
-    name: 'sieugene v1',
+    name: "sieugene v1",
     desc: {
-      en: 'Previous personal portfolio website built with Next.js and TypeScript.',
-      ru: 'Предыдущий персональный сайт-портфолио на Next.js и TypeScript.',
-      ja: '以前のNext.js・TypeScriptで作ったポートフォリオサイト。',
+      en: "Previous personal portfolio website built with Next.js and TypeScript.",
+      ru: "Предыдущий персональный сайт-портфолио на Next.js и TypeScript.",
+      ja: "以前のNext.js・TypeScriptで作ったポートフォリオサイト。",
     },
-    tech: ['Next.js', 'TypeScript', 'React'],
-    github: 'https://github.com/sieugene/sieugene_v1',
+    tech: ["Next.js", "TypeScript", "React"],
+    github: "https://github.com/sieugene/sieugene_v1",
     live: null,
   },
-]
+];
 
-export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale: raw } = await params
-  const locale = locales.includes(raw as Locale) ? (raw as Locale) : defaultLocale
-  const t = getT(locale)
+export default async function ProjectsPage({ params }: AsyncPageLocalesProps) {
+  const { t, locale } = await getClientT(params);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-20 space-y-12">
@@ -36,7 +34,9 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
         <p className="text-xs font-mono tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
           {t.projects.title}
         </p>
-        <h1 className="text-4xl font-bold tracking-tight">{t.projects.title}</h1>
+        <h1 className="text-4xl font-bold tracking-tight">
+          {t.projects.title}
+        </h1>
       </header>
 
       <div className="grid gap-5">
@@ -89,5 +89,5 @@ export default async function ProjectsPage({ params }: { params: Promise<{ local
         ))}
       </div>
     </div>
-  )
+  );
 }

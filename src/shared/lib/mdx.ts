@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import type { Locale } from './i18n'
+import { Locales } from './i18n/i18n'
 
 export interface PostMeta {
   slug: string
@@ -9,7 +9,7 @@ export interface PostMeta {
   date: string
   description: string
   tags?: string[]
-  locale: Locale
+  locale: Locales
 }
 
 export interface Post extends PostMeta {
@@ -18,7 +18,7 @@ export interface Post extends PostMeta {
 
 const postsDir = path.join(process.cwd(), 'src/content/posts')
 
-export function getPostSlugs(locale: Locale): string[] {
+export function getPostSlugs(locale: Locales): string[] {
   const dir = path.join(postsDir, locale)
   if (!fs.existsSync(dir)) return []
   return fs
@@ -27,7 +27,7 @@ export function getPostSlugs(locale: Locale): string[] {
     .map((f) => f.replace(/\.(mdx|md)$/, ''))
 }
 
-export function getPost(slug: string, locale: Locale): Post | null {
+export function getPost(slug: string, locale: Locales): Post | null {
   const extensions = ['.mdx', '.md']
   let raw: string | null = null
 
@@ -53,7 +53,7 @@ export function getPost(slug: string, locale: Locale): Post | null {
   }
 }
 
-export function getAllPosts(locale: Locale): PostMeta[] {
+export function getAllPosts(locale: Locales): PostMeta[] {
   return getPostSlugs(locale)
     .map((slug) => getPost(slug, locale))
     .filter((p): p is Post => p !== null)

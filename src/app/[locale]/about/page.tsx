@@ -1,16 +1,20 @@
-import { getT, locales, defaultLocale, type Locale } from '@/lib/i18n'
+import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
 
 const stack = [
-  { category: 'Frontend', items: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Vite'] },
-  { category: 'Backend', items: ['Node.js', 'PostgreSQL', 'REST', 'GraphQL'] },
-  { category: 'Tools', items: ['Git', 'Docker', 'Figma', 'VS Code'] },
-  { category: 'Learning', items: ['Python', 'Scikit-learn', 'PyTorch', 'ML fundamentals'] },
-]
+  {
+    category: "Frontend",
+    items: ["TypeScript", "React", "Next.js", "Tailwind CSS", "Vite"],
+  },
+  { category: "Backend", items: ["Node.js", "PostgreSQL", "REST", "GraphQL"] },
+  { category: "Tools", items: ["Git", "Docker", "Figma", "VS Code"] },
+  {
+    category: "Learning",
+    items: ["Python", "Scikit-learn", "PyTorch", "ML fundamentals"],
+  },
+];
 
-export default async function AboutPage({ params }: { params: Promise<{ locale: string }> }) {
-  const { locale: raw } = await params
-  const locale = locales.includes(raw as Locale) ? (raw as Locale) : defaultLocale
-  const t = getT(locale)
+export default async function AboutPage({ params }: AsyncPageLocalesProps) {
+  const { t } = await getClientT(params);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-20 space-y-16">
@@ -49,5 +53,5 @@ export default async function AboutPage({ params }: { params: Promise<{ locale: 
         </div>
       </section>
     </div>
-  )
+  );
 }

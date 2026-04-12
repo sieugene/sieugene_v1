@@ -1,55 +1,52 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { locales, defaultLocale, type Locale } from './src/lib/i18n'
+import { defaultLocale, Locales, locales } from "@/shared/lib/i18n/i18n";
+import { NextRequest, NextResponse } from "next/server";
 
-function getLocaleFromRequest(request: NextRequest): Locale {
-  // 1. Cookie
-  const cookieLocale = request.cookies.get('locale')?.value
-  if (cookieLocale && locales.includes(cookieLocale as Locale)) {
-    return cookieLocale as Locale
+function getLocaleFromRequest(request: NextRequest): Locales {
+  const cookie = request.cookies.get("locale")?.value;
+  if (cookie && locales.includes(cookie as Locales)) {
+    return cookie as Locales;
   }
 
-  // 2. Accept-Language header
-  const acceptLang = request.headers.get('accept-language') ?? ''
-  for (const part of acceptLang.split(',')) {
-    const tag = part.split(';')[0].trim().toLowerCase()
-    // ja
-    if (tag.startsWith('ja')) return 'ja'
-    // ru
-    if (tag.startsWith('ru')) return 'ru'
-    // en
-    if (tag.startsWith('en')) return 'en'
+  const accept = request.headers.get("accept-language") ?? "";
+
+  for (const part of accept.split(",")) {
+    const tag = part.split(";")[0].trim().toLowerCase();
+
+    for (const locale of locales) {
+      if (tag.startsWith(locale)) return locale;
+    }
   }
 
-  return defaultLocale
+  return defaultLocale;
 }
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
+  const { pathname } = request.nextUrl;
 
   // Skip static files and Next internals
   if (
-    pathname.startsWith('/_next') ||
-    pathname.startsWith('/api') ||
-    pathname.includes('.') // files like favicon.ico
+    pathname.startsWith("/_next") ||
+    pathname.startsWith("/api") ||
+    pathname.includes(".") // files like favicon.ico
   ) {
-    return NextResponse.next()
+    return NextResponse.next();
   }
 
   // Check if pathname already has a locale prefix
   const pathnameHasLocale = locales.some(
-    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`)
-  )
+    (locale) => pathname === `/${locale}` || pathname.startsWith(`/${locale}/`),
+  );
 
   if (!pathnameHasLocale) {
-    const locale = getLocaleFromRequest(request)
-    const url = request.nextUrl.clone()
-    url.pathname = `/${locale}${pathname}`
-    return NextResponse.redirect(url)
+    const locale = getLocaleFromRequest(request);
+    const url = request.nextUrl.clone();
+    url.pathname = `/${locale}${pathname}`;
+    return NextResponse.redirect(url);
   }
 
-  return NextResponse.next()
+  return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
-}
+  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+};

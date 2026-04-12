@@ -1,35 +1,33 @@
-import type { Metadata } from 'next'
-import '../globals.css'
-import { locales, defaultLocale, type Locale } from '@/lib/i18n'
-import Nav from '@/shared/ui/Nav'
-
+import {
+  AsyncLayoutLocalesProps,
+  AsyncPageLocalesProps,
+  getClientT,
+  locales,
+} from "@/shared/lib/i18n/i18n";
+import Nav from "@/shared/ui/Nav";
+import type { Metadata } from "next";
+import "../globals.css";
 
 export const metadata: Metadata = {
-  title: 'Eugene — Frontend Engineer',
-  description: 'Frontend engineer specialising in React, Next.js, TypeScript. Based in Japan.',
-}
+  title: "Eugene — Frontend Engineer",
+  description:
+    "Frontend engineer specialising in React, Next.js, TypeScript. Based in Japan.",
+};
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }))
-}
-
-function toLocale(s: string): Locale {
-  return locales.includes(s as Locale) ? (s as Locale) : defaultLocale
+  return locales.map((locale) => ({ locale }));
 }
 
 export default async function LocaleLayout({
   children,
   params,
-}: {
-  children: React.ReactNode
-  params: Promise<{ locale: string }>
+}: AsyncLayoutLocalesProps & {
+  children: React.ReactNode;
 }) {
-  const { locale: raw } = await params
-  const locale = toLocale(raw)
-  const lang = locale === 'ja' ? 'ja' : locale === 'ru' ? 'ru' : 'en'
+  const { locale } = await getClientT(params as unknown as AsyncPageLocalesProps['params']);
 
   return (
-    <html lang={lang}>
+    <html lang={locale}>
       <body className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased transition-colors">
         <Nav locale={locale} />
         <main>{children}</main>
@@ -38,5 +36,5 @@ export default async function LocaleLayout({
         </footer>
       </body>
     </html>
-  )
+  );
 }

@@ -1,16 +1,8 @@
 import { ContactGroupBtns } from "@/entities/contact/ui/ContactGroupBtns";
-import { defaultLocale, getT, locales, type Locale } from "@/lib/i18n";
+import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
 
-export default async function ContactPage({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale: raw } = await params;
-  const locale = locales.includes(raw as Locale)
-    ? (raw as Locale)
-    : defaultLocale;
-  const t = getT(locale);
+export default async function ContactPage({ params }: AsyncPageLocalesProps) {
+  const { t } = await getClientT(params);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-20 space-y-10">

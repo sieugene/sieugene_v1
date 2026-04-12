@@ -3,17 +3,17 @@
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { locales, type Locale } from '@/lib/i18n'
 import ThemeToggle from '@/features/theme/ui/ThemeToggle'
+import { locales, Locales } from '../lib/i18n/i18n'
 
-const localeLabel: Record<Locale, string> = {
+const localeLabel: Record<Locales, string> = {
   en: 'EN',
   ru: 'RU',
   ja: '日本語',
 }
 
 interface NavProps {
-  locale: Locale
+  locale: Locales
 }
 
 export default function Nav({ locale }: NavProps) {
@@ -32,7 +32,7 @@ export default function Nav({ locale }: NavProps) {
     { href: `/${locale}/contact`, label: locale === 'ja' ? 'お問い合わせ' : locale === 'ru' ? 'Контакты' : 'Contact' },
   ]
 
-  function switchLocale(next: Locale) {
+  function switchLocale(next: Locales) {
     // Set cookie so middleware remembers choice
     document.cookie = `locale=${next};path=/;max-age=31536000`
     router.push(`/${next}${pathWithoutLocale}`)

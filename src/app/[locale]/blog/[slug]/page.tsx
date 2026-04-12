@@ -1,55 +1,46 @@
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { locales, defaultLocale, type Locale } from '@/lib/i18n'
-import { getPostSlugs } from '@/lib/mdx';
+import {
+  AsyncPageLocalesProps,
+  getClientT,
+  Locales,
+  locales,
+} from "@/shared/lib/i18n/i18n";
+import { i18formatDate } from "@/shared/lib/i18n/i18n.date";
+import { getPostSlugs } from "@/shared/lib/mdx";
+import Link from "next/link";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
-  const params: { locale: string; slug: string }[] = []
+  const params: { locale: Locales; slug: string }[] = [];
 
   for (const locale of locales) {
-    // ⚠️ теперь читаем файлы напрямую (или хардкод / glob)
-    const slugs = await getPostSlugs(locale)
+    const slugs = await getPostSlugs(locale);
     for (const slug of slugs) {
-      params.push({ locale, slug })
+      params.push({ locale, slug });
     }
   }
 
-  return params
+  return params;
 }
 
-function toLocale(s: string): Locale {
-  return locales.includes(s as Locale) ? (s as Locale) : defaultLocale
-}
-
-// 👇 helper (замена getPost)
-async function loadPost(locale: string, slug: string) {
+async function loadPost(locale: Locales, slug: string) {
   try {
-    const mod = await import(`@/content/posts/${locale}/${slug}.mdx`)
-    return mod
+    const mod = await import(`@/content/posts/${locale}/${slug}.mdx`);
+    return mod;
   } catch {
-    return null
+    return null;
   }
 }
 
 export default async function PostPage({
   params,
-}: {
-  params: Promise<{ locale: string; slug: string }>
-}) {
-  const { locale: raw, slug } = await params
-  const locale = toLocale(raw)
+}: AsyncPageLocalesProps<{ slug: string }>) {
+  const { slug } = await params;
+  const { locale, t } = await getClientT(params);
 
-  const post = await loadPost(locale, slug)
-  if (!post) notFound()
+  const post = await loadPost(locale, slug);
+  if (!post) notFound();
 
-  const { default: Content, metadata } = post
-
-  const backLabel =
-    locale === 'ja'
-      ? '← ブログへ戻る'
-      : locale === 'ru'
-      ? '← Назад к блогу'
-      : '← Back to blog'
+  const { default: Content, metadata } = post;
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-20 space-y-10">
@@ -57,15 +48,12 @@ export default async function PostPage({
         href={`/${locale}/blog`}
         className="text-xs font-mono text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
       >
-        {backLabel}
+        {t.blog.back}
       </Link>
 
       <header className="space-y-3">
         <time className="text-xs font-mono text-zinc-400">
-          {new Date(metadata?.date).toLocaleDateString(
-            locale === 'ja' ? 'ja-JP' : locale === 'ru' ? 'ru-RU' : 'en-US',
-            { year: 'numeric', month: 'long', day: 'numeric' }
-          )}
+          {i18formatDate(metadata?.date, locale)}
         </time>
 
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight leading-tight">
@@ -96,5 +84,5 @@ export default async function PostPage({
         <Content />
       </article>
     </div>
-  )
+  );
 }

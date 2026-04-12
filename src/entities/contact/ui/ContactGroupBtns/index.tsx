@@ -1,4 +1,5 @@
-import { Translations } from "@/lib/i18n";
+
+import { Translations } from '@/shared/lib/i18n/i18n';
 import { Button } from "@/shared/ui/Button";
 import { FC } from "react";
 
@@ -8,7 +9,7 @@ type Props = {
 export const ContactGroupBtns: FC<Props> = ({ t }) => {
   return (
     <div className="flex gap-4 flex-wrap">
-      <Button as="a" href="mailto:your@email.com" size="lg">
+      <Button as="a" href="mailto:eugenepoluakov@gmail.com" size="lg">
         {t.contact.email}
       </Button>
       <Button
