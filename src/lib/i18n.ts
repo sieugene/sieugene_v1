@@ -119,6 +119,9 @@ export const translations = {
   },
 } satisfies Record<Locale, unknown>
 
+
 export function getT(locale: Locale) {
   return translations[locale]
 }
+
+export type Translations = ReturnType<typeof getT>
