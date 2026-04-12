@@ -37,7 +37,7 @@ export const translations = {
       title: "Blog",
       readMore: "Read more →",
       noPosts: "No posts yet.",
-      back: "← Back to blog"
+      back: "← Back to blog",
     },
     contact: {
       title: "Contact",
@@ -77,7 +77,7 @@ export const translations = {
       title: "Блог",
       readMore: "Читать далее →",
       noPosts: "Постов пока нет.",
-      back: "← Назад к блогу"
+      back: "← Назад к блогу",
     },
     contact: {
       title: "Контакты",
@@ -116,7 +116,7 @@ export const translations = {
       title: "ブログ",
       readMore: "続きを読む →",
       noPosts: "まだ投稿がありません。",
-      back: "← ブログへ戻る"
+      back: "← ブログへ戻る",
     },
     contact: {
       title: "お問い合わせ",
@@ -141,7 +141,9 @@ export type AsyncLayoutLocalesProps<TParams extends object = object> = {
   params: Promise<{ locale: string } & TParams>;
 };
 
-export const getClientT = async (params: AsyncPageLocalesProps["params"]) => {
+export const getClientT = async (
+  params: AsyncPageLocalesProps["params"],
+): Promise<{ t: Translations; locale: Locales }> => {
   const { locale: raw } = await params;
   const locale = locales.includes(raw as Locales)
     ? (raw as Locales)

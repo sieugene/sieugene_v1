@@ -24,12 +24,12 @@ export default async function LocaleLayout({
 }: AsyncLayoutLocalesProps & {
   children: React.ReactNode;
 }) {
-  const { locale } = await getClientT(params as unknown as AsyncPageLocalesProps['params']);
+  const { locale, t } = await getClientT(params as unknown as AsyncPageLocalesProps['params']);
 
   return (
     <html lang={locale}>
       <body className="min-h-screen bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100 antialiased transition-colors">
-        <Nav locale={locale} />
+        <Nav locale={locale} t={t}/>
         <main>{children}</main>
         <footer className="border-t border-zinc-200 dark:border-zinc-800 py-8 text-center text-sm text-zinc-400">
           © {new Date().getFullYear()} Eugene

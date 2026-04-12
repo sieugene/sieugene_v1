@@ -5,5 +5,7 @@ export const ROUTES = {
   notes: (locale: Locales) => `/${locale}/notes`,
   projects: (locale: Locales) => `/${locale}/projects`,
   about: (locale: Locales) => `/${locale}/post/about`,
+  blog: (locale: Locales) => `/${locale}/blog`,
+  contact: (locale: Locales) => `/${locale}/contact`,
   certificates: (locale: Locales) => `/${locale}/certificates`,
 } as const;

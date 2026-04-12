@@ -1,41 +1,42 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
-import { useState } from 'react'
-import ThemeToggle from '@/features/theme/ui/ThemeToggle'
-import { locales, Locales } from '../lib/i18n/i18n'
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
+import ThemeToggle from "@/features/theme/ui/ThemeToggle";
+import { locales, Locales, Translations } from "../lib/i18n/i18n";
+import { usePathnameWithoutLocale } from "../hooks/usePathnameWithoutLocale";
+import { ROUTES } from '../lib/routes';
 
 const localeLabel: Record<Locales, string> = {
-  en: 'EN',
-  ru: 'RU',
-  ja: '日本語',
-}
+  en: "EN",
+  ru: "RU",
+  ja: "日本語",
+};
 
 interface NavProps {
-  locale: Locales
+  locale: Locales;
+  t: Translations;
 }
 
-export default function Nav({ locale }: NavProps) {
-  const pathname = usePathname()
-  const router = useRouter()
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  // Strip current locale prefix from path
-  const pathWithoutLocale = pathname.replace(`/${locale}`, '') || '/'
+export default function Nav({ locale, t }: NavProps) {
+  const pathname = usePathname();
+  const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathWithoutLocale = usePathnameWithoutLocale(locale);
 
   const links = [
-    { href: `/${locale}`, label: locale === 'ja' ? 'ホーム' : locale === 'ru' ? 'Главная' : 'Home' },
-    { href: `/${locale}/about`, label: locale === 'ja' ? '自己紹介' : locale === 'ru' ? 'Обо мне' : 'About' },
-    { href: `/${locale}/projects`, label: locale === 'ja' ? 'プロジェクト' : locale === 'ru' ? 'Проекты' : 'Projects' },
-    { href: `/${locale}/blog`, label: locale === 'ja' ? 'ブログ' : locale === 'ru' ? 'Блог' : 'Blog' },
-    { href: `/${locale}/contact`, label: locale === 'ja' ? 'お問い合わせ' : locale === 'ru' ? 'Контакты' : 'Contact' },
-  ]
+    { href: ROUTES.home(locale), label: t.nav.home },
+    { href: ROUTES.about(locale), label: t.nav.about },
+    { href: ROUTES.projects(locale), label: t.nav.projects },
+    { href: ROUTES.blog(locale), label: t.nav.blog },
+    { href: ROUTES.contact(locale), label: t.nav.contact },
+  ];
 
   function switchLocale(next: Locales) {
     // Set cookie so middleware remembers choice
-    document.cookie = `locale=${next};path=/;max-age=31536000`
-    router.push(`/${next}${pathWithoutLocale}`)
+    document.cookie = `locale=${next};path=/;max-age=31536000`;
+    router.push(`/${next}${pathWithoutLocale}`);
   }
 
   return (
@@ -54,21 +55,21 @@ export default function Nav({ locale }: NavProps) {
           {links.map((link) => {
             const isActive =
               pathname === link.href ||
-              (link.href !== `/${locale}` && pathname.startsWith(link.href))
+              (link.href !== `/${locale}` && pathname.startsWith(link.href));
             return (
               <li key={link.href}>
                 <Link
                   href={link.href}
                   className={`transition-colors hover:text-zinc-900 dark:hover:text-zinc-100 ${
                     isActive
-                      ? 'text-zinc-900 dark:text-zinc-100 font-medium'
-                      : 'text-zinc-500 dark:text-zinc-400'
+                      ? "text-zinc-900 dark:text-zinc-100 font-medium"
+                      : "text-zinc-500 dark:text-zinc-400"
                   }`}
                 >
                   {link.label}
                 </Link>
               </li>
-            )
+            );
           })}
         </ul>
 
@@ -81,8 +82,8 @@ export default function Nav({ locale }: NavProps) {
                 onClick={() => switchLocale(loc)}
                 className={`px-2 py-0.5 rounded-full transition-colors ${
                   loc === locale
-                    ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900'
-                    : 'text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
+                    ? "bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-900"
+                    : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
                 }`}
               >
                 {localeLabel[loc]}
@@ -124,5 +125,5 @@ export default function Nav({ locale }: NavProps) {
         </div>
       )}
     </nav>
-  )
+  );
 }
