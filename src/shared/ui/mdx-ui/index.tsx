@@ -25,9 +25,7 @@ export const P = ({ children }: { children: ReactNode }) => (
 );
 
 export const UL = ({ children }: { children: ReactNode }) => (
-  <ul className="my-5 space-y-2 pl-0 list-none">
-    {children}
-  </ul>
+  <ul className="my-5 space-y-2 pl-0 list-none">{children}</ul>
 );
 
 export const OL = ({ children }: { children: ReactNode }) => (
@@ -84,7 +82,14 @@ export const A = ({
 }) => (
   <a
     href={href}
-    className="text-zinc-900 dark:text-zinc-100 underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-600 hover:decoration-zinc-900 dark:hover:decoration-zinc-300 transition-colors"
+    className="
+    text-blue-600 dark:text-blue-400
+    underline underline-offset-4
+    decoration-blue-400/60 dark:decoration-blue-300/50
+    hover:text-blue-700 dark:hover:text-blue-300
+    hover:decoration-blue-600 dark:hover:decoration-blue-200
+    transition-colors
+  "
     target={href?.startsWith("http") ? "_blank" : undefined}
     rel={href?.startsWith("http") ? "noopener noreferrer" : undefined}
     {...props}
