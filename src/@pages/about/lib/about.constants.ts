@@ -1,3 +1,12 @@
+export const BASE_STUCK = [
+  "TypeScript",
+  "React",
+  "Next.js",
+  "Tailwind CSS",
+  "Node.js",
+  "PostgreSQL",
+  "Git",
+];
 export const currentStack = [
   { category: "Frontend", items: ["React", "Next.js", "Svelte", "TypeScript"] },
   { category: "Backend", items: ["NestJS", "Node.js", "GraphQL", "REST"] },

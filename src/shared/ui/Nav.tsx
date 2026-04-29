@@ -6,7 +6,7 @@ import { useState } from "react";
 import ThemeToggle from "@/features/theme/ui/ThemeToggle";
 import { locales, Locales, Translations } from "../lib/i18n/i18n";
 import { usePathnameWithoutLocale } from "../hooks/usePathnameWithoutLocale";
-import { ROUTES } from '../lib/routes';
+import { ROUTES } from "../lib/routes";
 
 const localeLabel: Record<Locales, string> = {
   en: "EN",
@@ -44,7 +44,7 @@ export default function Nav({ locale, t }: NavProps) {
       <div className="max-w-4xl mx-auto px-4 h-14 flex items-center justify-between gap-4">
         {/* Logo */}
         <Link
-          href={`/${locale}`}
+          href={ROUTES.home(locale)}
           className="font-mono text-sm font-semibold tracking-tight hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors"
         >
           sieugene

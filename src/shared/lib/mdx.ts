@@ -1,62 +1,59 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import { Locales } from './i18n/i18n'
+import fs from "fs";
+import path from "path";
+import { Locales } from "./i18n/i18n";
 
 export interface PostMeta {
-  slug: string
-  title: string
-  date: string
-  description: string
-  tags?: string[]
-  locale: Locales
+  slug: string;
+  title: string;
+  date: string;
+  description: string;
+  tags?: string[];
+  locale: Locales;
 }
 
-export interface Post extends PostMeta {
-  content: string
-}
-
-const postsDir = path.join(process.cwd(), 'src/content/posts')
+const postsDir = path.join(process.cwd(), "src/content/posts");
 
 export function getPostSlugs(locale: Locales): string[] {
-  const dir = path.join(postsDir, locale)
-  if (!fs.existsSync(dir)) return []
+  const dir = path.join(postsDir, locale);
+  if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.mdx') || f.endsWith('.md'))
-    .map((f) => f.replace(/\.(mdx|md)$/, ''))
+    .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
+    .map((f) => f.replace(/\.(mdx|md)$/, ""));
 }
 
-export function getPost(slug: string, locale: Locales): Post | null {
-  const extensions = ['.mdx', '.md']
-  let raw: string | null = null
+export async function getPost(
+  slug: string,
+  locale: Locales,
+): Promise<PostMeta | null> {
+  try {
+    const mod = await import(`@/content/posts/${locale}/${slug}.mdx`);
 
-  for (const ext of extensions) {
-    const filePath = path.join(postsDir, locale, `${slug}${ext}`)
-    if (fs.existsSync(filePath)) {
-      raw = fs.readFileSync(filePath, 'utf-8')
-      break
-    }
-  }
+    const metadata = mod.metadata ?? {};
 
-  if (!raw) return null
-
-  const { data, content } = matter(raw)
-  return {
-    slug,
-    locale,
-    content,
-    title: data.title ?? slug,
-    date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
-    description: data.description ?? '',
-    tags: data.tags ?? [],
+    return {
+      slug,
+      locale,
+      // content: mod.default,
+      title: metadata.title ?? slug,
+      date: metadata.date
+        ? new Date(metadata.date).toISOString()
+        : new Date().toISOString(),
+      description: metadata.description ?? "",
+      tags: metadata.tags ?? [],
+    };
+  } catch {
+    return null;
   }
 }
 
-export function getAllPosts(locale: Locales): PostMeta[] {
-  return getPostSlugs(locale)
-    .map((slug) => getPost(slug, locale))
-    .filter((p): p is Post => p !== null)
-    .map(({ content: _content, ...meta }) => meta)
-    .sort((a, b) => (a.date < b.date ? 1 : -1))
+export async function getAllPosts(locale: Locales): Promise<PostMeta[]> {
+  const slugs = getPostSlugs(locale);
+
+  const posts = await Promise.all(slugs.map((slug) => getPost(slug, locale)));
+
+  return posts
+    .filter((p): p is PostMeta => p !== null)
+    .map(({ ...meta }) => meta)
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
 }

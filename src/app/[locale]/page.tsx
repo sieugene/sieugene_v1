@@ -1,19 +1,12 @@
-import { GITHUB_LINK } from '@/entities/contact/lib/constants';
+import { BASE_STUCK } from '@/@pages/about/lib/about.constants';
+import { GITHUB_LINK } from "@/entities/contact/lib/constants";
 import { ContactGroupBtns } from "@/entities/contact/ui/ContactGroupBtns";
+import { LatestPosts } from "@/features/posts/ui/LatestPosts";
 import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
-import { getAllPosts } from "@/shared/lib/mdx";
+import { ROUTES } from '@/shared/lib/routes';
 import { Button } from "@/shared/ui/Button";
 import Link from "next/link";
 
-const stack = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Tailwind CSS",
-  "Node.js",
-  "PostgreSQL",
-  "Git",
-];
 
 const projects = [
   {
@@ -32,7 +25,6 @@ const projects = [
 
 export default async function HomePage({ params }: AsyncPageLocalesProps) {
   const { t, locale } = await getClientT(params);
-  const posts = getAllPosts(locale).slice(0, 3);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-20 space-y-32">
@@ -51,10 +43,10 @@ export default async function HomePage({ params }: AsyncPageLocalesProps) {
           &ldquo;{t.hero.tagline}&rdquo;
         </p>
         <div className="flex gap-3 pt-2 flex-wrap">
-          <Button as={Link} href={`/${locale}/projects`}>
+          <Button as={Link} href={ROUTES.projects(locale)}>
             {t.hero.cta}
           </Button>
-          <Button as={Link} href={`/${locale}/blog`} variant="outline">
+          <Button as={Link} href={ROUTES.blog(locale)} variant="outline">
             {t.hero.blog}
           </Button>
         </div>
@@ -73,7 +65,7 @@ export default async function HomePage({ params }: AsyncPageLocalesProps) {
             {t.about.stack}
           </p>
           <div className="flex flex-wrap gap-2">
-            {stack.map((s) => (
+            {BASE_STUCK.map((s) => (
               <span
                 key={s}
                 className="px-3 py-1 rounded-full text-xs font-mono border border-zinc-200 dark:border-zinc-700 text-zinc-600 dark:text-zinc-400"
@@ -92,7 +84,7 @@ export default async function HomePage({ params }: AsyncPageLocalesProps) {
             {t.projects.title}
           </h2>
           <Link
-            href={`/${locale}/projects`}
+            href={ROUTES.projects(locale)}
             className="text-xs font-mono text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
           >
             all →
@@ -135,45 +127,7 @@ export default async function HomePage({ params }: AsyncPageLocalesProps) {
 
       {/* ── Blog preview ── */}
       <section id="blog" className="space-y-6">
-        <div className="flex items-center justify-between">
-          <h2 className="text-xs font-mono tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-            {t.blog.title}
-          </h2>
-          <Link
-            href={`/${locale}/blog`}
-            className="text-xs font-mono text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
-          >
-            all →
-          </Link>
-        </div>
-        {posts.length === 0 ? (
-          <p className="text-sm text-zinc-400">{t.blog.noPosts}</p>
-        ) : (
-          <ul className="divide-y divide-zinc-100 dark:divide-zinc-800">
-            {posts.map((post) => (
-              <li key={post.slug}>
-                <Link
-                  href={`/${locale}/blog/${post.slug}`}
-                  className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 py-4 group"
-                >
-                  <span className="font-medium group-hover:text-zinc-500 dark:group-hover:text-zinc-400 transition-colors">
-                    {post.title}
-                  </span>
-                  <time className="text-xs font-mono text-zinc-400 shrink-0">
-                    {new Date(post.date).toLocaleDateString(
-                      locale === "ja"
-                        ? "ja-JP"
-                        : locale === "ru"
-                          ? "ru-RU"
-                          : "en-US",
-                      { year: "numeric", month: "short", day: "numeric" },
-                    )}
-                  </time>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <LatestPosts locale={locale} t={t} />
       </section>
 
       {/* ── Contact ── */}
