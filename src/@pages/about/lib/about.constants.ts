@@ -25,6 +25,7 @@ export const currentStack = [
 export const legacyStack = [
   "S3",
   "firebase",
+  "go",
   "clerk",
   "unity",
   "figma",
