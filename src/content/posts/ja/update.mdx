@@ -1,81 +1,75 @@
 export const metadata = {
-  title: "Update website",
+  title: "サイトの更新",
   date: "2022-01-10",
-  description: "My first test post about my site.",
+  description: "サイトについての最初のテスト投稿。",
   tags: ["other"],
 }
 
-# Update website
 
-**Category:** other  
-**Date:** 2022-01-10
+これはこのウェブサイトとその更新についての最初のテスト投稿です。
 
----
-
-This is the first test post about this website and its update.
-
-At the time of writing, sections for posts, projects, and the main post page are already implemented.
+執筆時点では、投稿、プロジェクトのセクション、および投稿のメインページがすでに実装されています。
 
 ---
 
-## Motivation
+## モチベーション
 
-The main motivation was to update the visual part of the website, as well as to expand the functionality of my portfolio so it better reflects my tech stack and what I do.
-
----
-
-## Problems
-
-Deadlines I set for myself kept slipping. I started development in December 2021 and initially focused only on the core functionality I needed — essentially replacing my old site with a basic "About me" page.
-
-At that time, the plan was to implement a full posts system and write a few articles about frontend development. For now, the priority is simply filling the site with content.
+主な動機は、サイトのビジュアル部分を刷新することと、自分の技術スタックや取り組んでいることをより反映できるようにポートフォリオの機能を拡充することでした。
 
 ---
 
-## Backend
+## 問題点
 
-I considered creating a separate backend project with NestJS or implementing everything inside Next.js.
+自分で設定した締め切りは何度もずれ込みました。開発は2021年12月に始め、当初は必要なコア機能だけに集中していました — 基本的には古いサイトをシンプルな「自己紹介」ページに置き換えるだけでした。
 
-I chose the second option. It turned out to be not the most convenient approach, but sufficient for my current needs. In the future, I’m considering migrating to NestJS, since I already use it активно in pet projects and production.
+当時の計画は、完全な投稿システムを実装し、フロントエンド開発に関する記事をいくつか書くことでした。現時点では、サイトにコンテンツを充実させることが優先事項です。
+
+---
+
+## バックエンド
+
+NestJSで別のバックエンドプロジェクトを作るか、Next.jsの中にすべてを実装するかを検討しました。
+
+2番目の選択肢を選びました。最も便利なアプローチではありませんでしたが、現在のニーズには十分でした。将来的にはNestJSへの移行を検討しています。ペットプロジェクトや本番環境ですでに積極的に使用しているためです。
 
 ---
 
 ## SSR
 
-For SSR, the choice was obviously Next.js.
+SSRについては、当然の選択としてNext.jsを選びました。
 
-However, there were issues with MDX tooling. I ended up using **next-mdx-remote**, which turned out to be not the most convenient solution. Compared to the ecosystem around Nuxt, MDX tooling there felt simpler.
-
----
-
-## What to write?
-
-I have ideas, but it's not always clear how to structure content so that it's visually appealing and easy to read.
-
-Another open question is how to attract readers.
-
-I also considered using the portfolio purely as a landing page and publishing articles on platforms like Medium or Habr. In the end, I decided to go with a personal blog.
+ただし、MDXツールに問題がありました。最終的に **next-mdx-remote** を使用しましたが、これも最も便利な解決策とは言えませんでした。Nuxtのエコシステムと比較すると、そちらのMDXツールの方がシンプルに感じられました。
 
 ---
 
-## What's next?
+## 何を書くか？
 
-Possible features:
+アイデアはありますが、視覚的に魅力的で読みやすいコンテンツをどのように構成するかが、常に明確なわけではありません。
 
-- Comments
-- Post ratings
-- Sharing functionality
+もう一つの未解決の問題は、読者をどのように集めるかです。
 
-All of this already exists on external platforms, and I’m not sure I need to reimplement everything. For now, I prefer keeping only what I actually need or want to build.
+ポートフォリオをランディングページとして使い、MediumやHabrのようなプラットフォームに記事を公開することも検討しました。最終的には個人ブログという形にすることに決めました。
 
 ---
 
-## Conclusion
+## 今後の展開
 
-At this stage, it's still unclear whether this version of the site fully matches what I originally envisioned.
+実装を検討している機能：
 
-In my free time, I plan to continue developing it further. The main focus now is writing articles, possibly cross-posting them to other platforms, and linking back to this site as the source.
+- コメント機能
+- 投稿の評価機能
+- シェア機能
 
-This was more of a trial post — a way to capture thoughts about the site and its development process.
+これらはすべて外部プラットフォームにすでに存在しており、すべてを再実装する必要があるかどうかわかりません。今のところ、本当に必要なものや自分で作りたいものだけを残すようにしています。
 
-You can find contact links in the footer if you have ideas or feedback.
+---
+
+## まとめ
+
+現時点では、このバージョンのサイトが当初思い描いていたものと完全に一致しているかどうかは、まだわかりません。
+
+空き時間を使って、引き続き開発を続けていく予定です。現在の主な焦点は記事の執筆で、他のプラットフォームへのクロスポストや、このサイトをソースとしてリンクすることも考えています。
+
+これはむしろ試験的な投稿でした — サイトとその開発プロセスについての考えを記録する方法として。
+
+アイデアやフィードバックがあれば、フッターにある連絡先リンクからご連絡ください。

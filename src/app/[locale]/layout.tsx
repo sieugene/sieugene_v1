@@ -76,7 +76,7 @@ export default async function LocaleLayout({
         <Nav locale={locale} t={t} />
         <main>{children}</main>
         <footer className="border-t border-zinc-200 dark:border-zinc-800 py-8 text-center text-sm text-zinc-400">
-          © {new Date().getFullYear()} {t.hero.name}
+          © {new Date().getFullYear()} sieugene
         </footer>
       </body>
     </html>
