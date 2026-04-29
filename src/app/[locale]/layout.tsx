@@ -9,9 +9,9 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "Eugene — Frontend Engineer",
+  title: "Eugene — Fullstack Engineer",
   description:
-    "Frontend engineer specialising in React, Next.js, TypeScript. Based in Japan.",
+    "Fullstack Engineer specialising in React, Next.js, TypeScript. Based in Japan.",
 };
 
 export function generateStaticParams() {

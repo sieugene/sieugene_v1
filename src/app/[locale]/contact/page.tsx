@@ -1,47 +1,8 @@
-import { ContactGroupBtns } from "@/entities/contact/ui/ContactGroupBtns";
+import { ContactPage } from "@/@pages/contact";
 import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
 
-export default async function ContactPage({ params }: AsyncPageLocalesProps) {
+export default async function Page({ params }: AsyncPageLocalesProps) {
   const { t } = await getClientT(params);
 
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-20 space-y-10">
-      <header className="space-y-2">
-        <p className="text-xs font-mono tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-          {t.contact.title}
-        </p>
-        <h1 className="text-4xl font-bold tracking-tight">{t.contact.title}</h1>
-      </header>
-
-      <p className="text-lg text-zinc-600 dark:text-zinc-400 max-w-md">
-        {t.contact.subtitle}
-      </p>
-
-      <ContactGroupBtns t={t} />
-
-      {/* Social links */}
-      <div className="pt-6 border-t border-zinc-100 dark:border-zinc-800 space-y-3">
-        {[
-          { label: "GitHub", href: "https://github.com/sieugene" },
-          { label: "Twitter / X", href: "#" },
-          { label: "LinkedIn", href: "#" },
-        ].map((link) => (
-          <a
-            key={link.label}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-between group max-w-xs py-2 border-b border-transparent hover:border-zinc-200 dark:hover:border-zinc-700 transition-colors"
-          >
-            <span className="text-sm font-mono text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
-              {link.label}
-            </span>
-            <span className="text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-500 transition-colors">
-              ↗
-            </span>
-          </a>
-        ))}
-      </div>
-    </div>
-  );
+  return <ContactPage t={t} />;
 }

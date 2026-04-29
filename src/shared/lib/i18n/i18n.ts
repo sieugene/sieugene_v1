@@ -18,17 +18,43 @@ export const translations = {
     hero: {
       greeting: "Hi, I'm",
       name: "Eugene",
-      role: "Frontend Engineer",
-      tagline: "Building interfaces that feel inevitable.",
+      role: "Fullstack Engineer",
+      tagline: "Building reliable web applications.",
       cta: "See my work",
       blog: "Read blog",
     },
     about: {
       title: "About me",
-      body: "Frontend engineer with 7+ years of experience. Started with PHP, moved to React in 2018 — been here since. I worked on the frontend side for a long time, then expanded into fullstack. I care about clean architecture, readable code, and keeping up with what's actually useful in the ecosystem. Currently based in Japan, actively exploring machine learning on the side.",
+      body: "Fullstack Engineer with 7+ years of experience. Started with PHP, moved to React in 2018 — been here since. I worked on the frontend side for a long time, then expanded into fullstack. I care about clean architecture, readable code, and keeping up with what's actually useful in the ecosystem. Currently based in Japan, actively exploring machine learning on the side.",
       stack: "Stack",
       timeline: "Timeline",
       alsoWorkedWith: "Also worked with",
+      timelineItems: [
+        {
+          year: "2017",
+          note: "Started with PHP — online stores, CRM systems, e-commerce.",
+        },
+        {
+          year: "2018",
+          note: "Moved to React. Wrote class components, pure Redux — before hooks.",
+        },
+        {
+          year: "2021",
+          note: "Went fullstack: Node.js backend, GraphQL APIs, blockchain (Solidity, Truffle).",
+        },
+        {
+          year: "2022",
+          note: "Moved to Japan. Focused on Japanese, kept building side projects.",
+        },
+        {
+          year: "2023 – Apr 2026",
+          note: "Part-time contracts at several IT companies — frontend and fullstack.",
+        },
+        {
+          year: "2026 – now",
+          note: "Fullstack engineer at a Japanese IT company.",
+        },
+      ],
     },
     projects: {
       title: "Projects",
@@ -48,6 +74,7 @@ export const translations = {
       github: "GitHub",
     },
   },
+
   ru: {
     nav: {
       home: "Главная",
@@ -59,9 +86,9 @@ export const translations = {
     hero: {
       greeting: "Привет, я",
       name: "Евгений",
-      role: "Фронтенд-разработчик",
+      role: "Fullstack разработчик",
       tagline:
-        "Создаю интерфейсы, которые ощущаются как само собой разумеющееся.",
+        "Создаю надёжные веб-приложения.",
       cta: "Мои работы",
       blog: "Читать блог",
     },
@@ -71,6 +98,32 @@ export const translations = {
       stack: "Стек",
       timeline: "История",
       alsoWorkedWith: "Также работал с",
+      timelineItems: [
+        {
+          year: "2017",
+          note: "Начал с PHP — интернет-магазины, CRM-системы, e-commerce.",
+        },
+        {
+          year: "2018",
+          note: "Перешёл на React. Писал class-компоненты, чистый Redux — до появления hooks.",
+        },
+        {
+          year: "2021",
+          note: "Стал fullstack: backend на Node.js, GraphQL API, блокчейн (Solidity, Truffle).",
+        },
+        {
+          year: "2022",
+          note: "Переехал в Японию. Сфокусировался на японском, продолжал делать pet-проекты.",
+        },
+        {
+          year: "2023 – апр 2026",
+          note: "Контракты на part-time в нескольких IT-компаниях — frontend и fullstack.",
+        },
+        {
+          year: "2026 – сейчас",
+          note: "Fullstack-инженер в японской IT-компании.",
+        },
+      ],
     },
     projects: {
       title: "Проекты",
@@ -90,6 +143,7 @@ export const translations = {
       github: "GitHub",
     },
   },
+
   ja: {
     nav: {
       home: "ホーム",
@@ -101,8 +155,8 @@ export const translations = {
     hero: {
       greeting: "こんにちは、",
       name: "ユージーンです",
-      role: "フロントエンドエンジニア",
-      tagline: "必然的に感じるインターフェースをつくっています。",
+      role: "フルスタックエンジニア",
+      tagline: "信頼性の高いWebアプリケーションを開発しています。",
       cta: "実績を見る",
       blog: "ブログを読む",
     },
@@ -112,6 +166,32 @@ export const translations = {
       stack: "スタック",
       timeline: "経歴",
       alsoWorkedWith: "使用経験あり",
+      timelineItems: [
+        {
+          year: "2017",
+          note: "PHPからスタート — ECサイト、CRMシステムなどを開発。",
+        },
+        {
+          year: "2018",
+          note: "Reactへ移行。Hooks以前のclassコンポーネント＋Reduxで開発。",
+        },
+        {
+          year: "2021",
+          note: "フルスタックへ拡張：Node.jsバックエンド、GraphQL API、ブロックチェーン（Solidity、Truffle）。",
+        },
+        {
+          year: "2022",
+          note: "日本へ移住。日本語学習に注力しつつ、個人開発を継続。",
+        },
+        {
+          year: "2023 – 2026年4月",
+          note: "複数のIT企業でパートタイム契約 — フロントエンドおよびフルスタック。",
+        },
+        {
+          year: "2026 – 現在",
+          note: "日本のIT企業でフルスタックエンジニアとして勤務。",
+        },
+      ],
     },
     projects: {
       title: "プロジェクト",

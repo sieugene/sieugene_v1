@@ -1,3 +1,4 @@
+import { GITHUB_LINK } from '@/entities/contact/lib/constants';
 import { ContactGroupBtns } from "@/entities/contact/ui/ContactGroupBtns";
 import { AsyncPageLocalesProps, getClientT } from "@/shared/lib/i18n/i18n";
 import { getAllPosts } from "@/shared/lib/mdx";
@@ -19,7 +20,7 @@ const projects = [
     name: "yomikomi",
     desc: "Browser-based Japanese OCR using PaddleOCR + ONNX Runtime Web.",
     tech: ["Next.js", "WASM", "PaddleOCR"],
-    github: "https://github.com/sieugene",
+    github: GITHUB_LINK,
   },
   {
     name: "sieugene v1",
@@ -46,7 +47,7 @@ export default async function HomePage({ params }: AsyncPageLocalesProps) {
         <p className="text-xl sm:text-2xl text-zinc-500 dark:text-zinc-400 font-light max-w-md">
           {t.hero.role}
         </p>
-        <p className="text-base text-zinc-400 dark:text-zinc-500 max-w-sm leading-relaxed italic">
+        <p className="text-base text-zinc-400 dark:text-zinc-500 max-w leading-relaxed italic">
           &ldquo;{t.hero.tagline}&rdquo;
         </p>
         <div className="flex gap-3 pt-2 flex-wrap">
